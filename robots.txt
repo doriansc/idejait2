@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ideja-it.hr/sitemap.xml
