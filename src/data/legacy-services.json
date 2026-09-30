@@ -1,0 +1,524 @@
+[
+ {
+  "slug": "it-podrska-zagreb",
+  "title": "IT podrška Zagreb | Brza informatička podrška za tvrtke | IDEJA IT",
+  "description": "IT podrška Zagreb za tvrtke. Brze intervencije, udaljena podrška, rješavanje problema s računalima, korisnicima, mrežom i poslovnim aplikacijama.",
+  "serviceName": "IT podrška Zagreb za tvrtke",
+  "breadcrumb": "IT podrška Zagreb za tvrtke",
+  "eyebrow": "IT podrška Zagreb",
+  "h1": "IT podrška Zagreb za tvrtke",
+  "lead": "Kada zaposlenicima treba brza i pouzdana pomoć, cilj nije samo riješiti kvar nego vratiti rad poslovanja u normalu što prije. IDEJA IT pruža IT podršku tvrtkama u Zagrebu kroz udaljeni pristup i dolazak na lokaciju.",
+  "bullets": [
+   "Brza pomoć korisnicima i radnim stanicama",
+   "Remote support i dolazak na lokaciju u Zagrebu",
+   "Podrška za računala, printere, mrežu i poslovne aplikacije"
+  ],
+  "faqHeading": "Pitanja koja najčešće dobivamo",
+  "sections": [
+   {
+    "label": "Što uključuje usluga",
+    "h2": "Praktična podrška bez generičkih obećanja",
+    "intro": null,
+    "cards": [
+     {
+      "h": "Što najčešće radimo",
+      "items": [
+       "Rješavanje problema sa sporim ili nestabilnim računalima",
+       "Instalacija i konfiguracija Windows okruženja",
+       "Pomoć oko printera, skenera i uredske periferije",
+       "Postavljanje korisničkih računa i pristupa resursima",
+       "Koordinacija s dobavljačima interneta, softvera i opreme",
+       "Preventivne provjere i preporuke za manje kvarova"
+      ]
+     }
+    ],
+    "checklist": []
+   },
+   {
+    "label": "Kako pristupamo problemima",
+    "h2": "Dijagnostika prije popravka, prevencija prije kvara",
+    "intro": "Svaki problem ima površinski simptom i stvarni uzrok. Sporije računalo može značiti pun disk, ali i oštećen profil, loše konfiguriran antivirus ili mrežni problem koji usporava pristup podacima. Naš cilj je pronaći stvarni uzrok, ne samo ugasiti simptom.",
+    "cards": [
+     {
+      "h": "Kako to radimo u praksi",
+      "p": "Prvo prikupljamo informacije od korisnika i provjeravamo stanje sustava udaljenim pristupom. Ako je potrebna terenska intervencija, dogovaramo dolazak isti ili sljedeći dan. Nakon rješavanja problema dokumentiramo što je napravljeno i predlažemo preventivne mjere ako uočimo rizik koji bi mogao izazvati novi zastoj."
+     },
+     {
+      "h": "Tipični scenariji",
+      "p": "Računalo se ne može spojiti na mrežni disk. Printer ne radi nakon ažuriranja Windowsa. Korisnik je zaboravio lozinku za poslovni email. Outlook javlja grešku pri slanju. VPN se ne spaja iz kuće. Novi zaposlenik treba postavljeno računalo i pristup svim resursima. Sve su to situacije koje rješavamo svakodnevno."
+     }
+    ],
+    "checklist": []
+   }
+  ],
+  "related": [
+   {
+    "href": "it-podrska-za-tvrtke-zagreb",
+    "text": "Za dugoročnu suradnju i vanjski IT odjel."
+   },
+   {
+    "href": "microsoft-365-administracija-zagreb",
+    "text": "Kada su email, licence i sigurnost ključni dio problema."
+   },
+   {
+    "href": "backup-i-sigurnost-podataka-zagreb",
+    "text": "Za smanjenje rizika i brži oporavak nakon incidenta."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Što sve pokriva IT podrška?",
+    "a": "Pokrivamo rješavanje problema s računalima, printerima, mrežom, VPN pristupom, poslovnim aplikacijama i korisničkim računima. Uključuje i koordinaciju s dobavljačima interneta i softvera."
+   },
+   {
+    "q": "Koliko brzo dolazite na lokaciju u Zagrebu?",
+    "a": "Za hitne situacije cilj je dolazak unutar 1-2 sata na području Zagreba i Velike Gorice. Za manje hitne zahtjeve dogovaramo termin isti ili sljedeći radni dan."
+   },
+   {
+    "q": "Mogu li dobiti podršku samo po potrebi, bez ugovora?",
+    "a": "Da. Možete nas kontaktirati za jednokratnu intervenciju ili konkretan problem. Nema obveze potpisivanja ugovora za ad-hoc podršku."
+   },
+   {
+    "q": "Podržavate li macOS i Linux sustave?",
+    "a": "Primarno radimo s Windows okruženjima jer su najčešća u hrvatskim tvrtkama. Za macOS i Linux sustave možemo pomoći s mrežnim postavkama, pristupom dijeljenim resursima i integracijom u postojeće okruženje."
+   }
+  ],
+  "ctaH": "Trebate brzu i pouzdanu pomoć?",
+  "ctaP": "Javite nam osnovne informacije o sustavu i problemu, a mi ćemo predložiti najbrži i najučinkovitiji sljedeći korak."
+ },
+ {
+  "slug": "it-podrska-za-tvrtke-zagreb",
+  "title": "IT podrška za tvrtke Zagreb | Vanjski IT odjel | IDEJA IT",
+  "description": "IT podrška za tvrtke u Zagrebu. Vanjski IT odjel za male i srednje firme: korisnička podrška, održavanje sustava, servera, mreža i Microsoft 365.",
+  "serviceName": "IT podrška za tvrtke u Zagrebu",
+  "breadcrumb": "IT podrška za tvrtke u Zagrebu",
+  "eyebrow": "Vanjski IT odjel",
+  "h1": "IT podrška za tvrtke u Zagrebu",
+  "lead": "Ako nemate interni IT tim ili vam treba jača podrška od postojeće, vanjski IT odjel može pokriti svakodnevne zahtjeve korisnika i strateško održavanje infrastrukture.",
+  "bullets": [
+   "Mjesečno održavanje ili podrška po pozivu",
+   "Jedna kontakt točka za korisnike i infrastrukturu",
+   "Jasan pregled prioriteta, rizika i preporuka"
+  ],
+  "faqHeading": "Pitanja koja najčešće dobivamo",
+  "sections": [
+   {
+    "label": "Što uključuje usluga",
+    "h2": "Praktična podrška bez generičkih obećanja",
+    "intro": null,
+    "cards": [
+     {
+      "h": "Što najčešće radimo",
+      "items": [
+       "Korisnička podrška zaposlenicima",
+       "Praćenje stanja računala, servera i mreže",
+       "Planiranje zamjene opreme i licenci",
+       "Administracija pristupa i sigurnosnih postavki",
+       "Backup, oporavak i poslovni kontinuitet",
+       "Koordinacija IT dobavljača i projekata"
+      ]
+     }
+    ],
+    "checklist": []
+   },
+   {
+    "label": "Što dobivate s vanjskim IT odjelom",
+    "h2": "Predvidiv trošak, jasna odgovornost i stručnost kada vam treba",
+    "intro": "Mnoge tvrtke s 10 do 50 zaposlenika nemaju dovoljno IT posla za stalnog zaposlenika, ali imaju previše problema da bi ih ignorirali. Vanjski IT odjel pokriva i svakodnevnu korisničku podršku i strateško planiranje infrastrukture.",
+    "cards": [
+     {
+      "h": "Kako to izgleda u praksi",
+      "p": "Vaši zaposlenici prijavljuju probleme emailom, telefonom ili WhatsApp porukom. Mi rješavamo zahtjev udaljeno ili terenski, ovisno o situaciji. Paralelno provodimo redovite provjere servera, mreže i backupa. Svaki mjesec dobivate pregled stanja sustava, otvorenih pitanja i preporuka za poboljšanja."
+     },
+     {
+      "h": "Prednosti modela",
+      "p": "Nema troška plaće, doprinosa i edukacije internog IT zaposlenika. Umjesto jedne osobe s ograničenim znanjem, imate pristup timu koji pokriva servere, mreže, cloud, sigurnost i korisničku podršku. Fleksibilnost je ključna: možete skalirati angažman prema potrebama poslovanja."
+     }
+    ],
+    "checklist": []
+   }
+  ],
+  "related": [
+   {
+    "href": "it-podrska-za-tvrtke-zagreb",
+    "text": "Za dugoročnu suradnju i vanjski IT odjel."
+   },
+   {
+    "href": "microsoft-365-administracija-zagreb",
+    "text": "Kada su email, licence i sigurnost ključni dio problema."
+   },
+   {
+    "href": "backup-i-sigurnost-podataka-zagreb",
+    "text": "Za smanjenje rizika i brži oporavak nakon incidenta."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Što znači vanjski IT odjel u praksi?",
+    "a": "To znači da preuzimamo ulogu internog IT tima: rješavamo korisničke probleme, održavamo servere i mrežu, upravljamo licencama i sigurnošću. Vi imate jednu kontakt točku za sve IT potrebe bez troška zapošljavanja stalnog IT stručnjaka."
+   },
+   {
+    "q": "Kako izgleda mjesečno održavanje?",
+    "a": "Uključuje redovite provjere servera, backupa i mreže, rješavanje korisničkih zahtjeva po prijavi, praćenje licenci i sigurnosnih postavki te mjesečni izvještaj s preporukama za poboljšanja."
+   },
+   {
+    "q": "Koliko zaposlenika trebam imati da se isplati vanjski IT?",
+    "a": "Već od 5 zaposlenika vanjski IT odjel postaje isplativiji od internog zapošljavanja. Za tvrtke s 10-50 zaposlenika ovo je najčešći model jer pokriva sve potrebe uz predvidiv mjesečni trošak."
+   },
+   {
+    "q": "Možete li surađivati s našim postojećim IT-jevcem?",
+    "a": "Da. Možemo djelovati kao druga razina podrške za infrastrukturna pitanja dok vaš interni IT pokriva svakodnevnu korisničku podršku, ili obrnuto."
+   }
+  ],
+  "ctaH": "Trebate vanjski IT odjel?",
+  "ctaP": "Javite nam osnovne informacije o sustavu i problemu, a mi ćemo predložiti najbrži i najučinkovitiji sljedeći korak."
+ },
+ {
+  "slug": "odrzavanje-servera-zagreb",
+  "title": "Održavanje servera Zagreb | Windows Server administracija | IDEJA IT",
+  "description": "Održavanje servera Zagreb za tvrtke. Windows Server administracija, virtualizacija, korisnici, prava pristupa, backup i nadzor performansi.",
+  "serviceName": "Održavanje servera u Zagrebu",
+  "breadcrumb": "Održavanje servera u Zagrebu",
+  "eyebrow": "Windows Server i infrastruktura",
+  "h1": "Održavanje servera u Zagrebu",
+  "lead": "Server je i dalje centralna točka mnogih poslovnih sustava. Kada server uspori ili stane, staje i dio poslovanja. Zato održavanje servera mora biti preventivno, ne samo reaktivno.",
+  "bullets": [
+   "Administracija Windows Server okruženja",
+   "Provjera backup-a i planova oporavka",
+   "Nadzor performansi, diskova, korisnika i servisa"
+  ],
+  "faqHeading": "Pitanja koja najčešće dobivamo",
+  "sections": [
+   {
+    "label": "Što uključuje usluga",
+    "h2": "Praktična podrška bez generičkih obećanja",
+    "intro": null,
+    "cards": [
+     {
+      "h": "Što najčešće radimo",
+      "items": [
+       "Active Directory i korisnička prava",
+       "Datotečni serveri i dijeljeni resursi",
+       "Virtualizacija i host okruženja",
+       "Praćenje diskova, kapaciteta i logova",
+       "Provjera backup zadataka i restore scenarija",
+       "Preporuke za nadogradnju i sigurnost"
+      ]
+     }
+    ],
+    "checklist": []
+   },
+   {
+    "label": "Proaktivno umjesto reaktivnog pristupa",
+    "h2": "Redovito održavanje smanjuje hitne intervencije i iznenadne troškove",
+    "intro": "Većina kritičnih serverskih problema nije iznenađenje. Pun disk, istekli certifikati, neispravni backup zadaci i zastarjela ažuriranja su simptomi zanemarenog održavanja. Redoviti pregledi otkrivaju ove probleme prije nego uzrokuju zastoj.",
+    "cards": [
+     {
+      "h": "Što provjeravamo redovito",
+      "p": "Stanje diskova i RAID polja, uspješnost backup zadataka, Windows ažuriranja i sigurnosne zakrpe, Active Directory replikaciju, DNS i DHCP ispravnost, istek certifikata, performanse procesora i memorije te logove s greškama i upozorenjima."
+     },
+     {
+      "h": "Tipični scenariji koje sprječavamo",
+      "p": "Server koji se ne može pokrenuti jer je disk pun logovima. Backup koji već mjesecima ne radi jer je istekla lozinka servisnog računa. Korisnici koji ne mogu pristupiti podacima jer je AD replikacija prestala raditi. Sve su to situacije koje se mogu izbjeći redovitim nadzorom."
+     }
+    ],
+    "checklist": []
+   }
+  ],
+  "related": [
+   {
+    "href": "it-podrska-za-tvrtke-zagreb",
+    "text": "Za dugoročnu suradnju i vanjski IT odjel."
+   },
+   {
+    "href": "microsoft-365-administracija-zagreb",
+    "text": "Kada su email, licence i sigurnost ključni dio problema."
+   },
+   {
+    "href": "backup-i-sigurnost-podataka-zagreb",
+    "text": "Za smanjenje rizika i brži oporavak nakon incidenta."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Koje verzije Windows Servera podržavate?",
+    "a": "Radimo sa svim aktivnim verzijama: Windows Server 2016, 2019 i 2022. Za starije sustave poput Server 2012 R2 možemo pomoći s migracijom na noviju verziju."
+   },
+   {
+    "q": "Radite li s virtualizacijom?",
+    "a": "Da. Imamo iskustva s Hyper-V okruženjima koja su najčešća u hrvatskim tvrtkama. Postavljamo VM-ove, upravljamo resursima i planiramo kapacitet."
+   },
+   {
+    "q": "Koliko često trebam servisirati server?",
+    "a": "Preporučujemo mjesečne provjere koje uključuju ažuriranja, pregled diskova i logova, test backupa i provjeru servisa. Za kritične sustave to može biti i češće."
+   },
+   {
+    "q": "Što ako server prestane raditi usred radnog dana?",
+    "a": "Hitne situacije imaju prioritet. Cilj je prva reakcija unutar 30 minuta udaljenim pristupom. Ako je potreban dolazak na lokaciju, dogovaramo najbrži mogući termin."
+   }
+  ],
+  "ctaH": "Trebate stabilan i siguran serverski sustav?",
+  "ctaP": "Javite nam osnovne informacije o sustavu i problemu, a mi ćemo predložiti najbrži i najučinkovitiji sljedeći korak."
+ },
+ {
+  "slug": "konfiguracija-mreza-zagreb",
+  "title": "Konfiguracija mreža Zagreb | LAN, WiFi, VPN i firewall | IDEJA IT",
+  "description": "Konfiguracija mreža Zagreb za tvrtke. LAN i WiFi mreže, VPN, VLAN segmentacija, firewall pravila i optimizacija poslovne mrežne infrastrukture.",
+  "serviceName": "Konfiguracija mreža u Zagrebu",
+  "breadcrumb": "Konfiguracija mreža u Zagrebu",
+  "eyebrow": "LAN, WiFi, VPN i firewall",
+  "h1": "Konfiguracija mreža u Zagrebu",
+  "lead": "Poslovna mreža mora biti stabilna, sigurna i dovoljno dobro strukturirana da kvar jednog segmenta ne uspori cijeli ured. Pomažemo pri projektiranju, konfiguraciji i optimizaciji mreže.",
+  "bullets": [
+   "Uredske LAN i WLAN mreže",
+   "VPN povezivanje i udaljeni rad",
+   "Firewall, segmentacija i sigurniji pristup"
+  ],
+  "faqHeading": "Pitanja koja najčešće dobivamo",
+  "sections": [
+   {
+    "label": "Što uključuje usluga",
+    "h2": "Praktična podrška bez generičkih obećanja",
+    "intro": null,
+    "cards": [
+     {
+      "h": "Što najčešće radimo",
+      "items": [
+       "Konfiguracija switcheva, routera i pristupnih točaka",
+       "VLAN segmentacija i odvajanje kritičnog prometa",
+       "WiFi optimizacija za urede i više katova",
+       "Site-to-site i remote access VPN",
+       "Analiza prekida, loopova i uskih grla",
+       "Dokumentiranje mrežne topologije i pravila"
+      ]
+     }
+    ],
+    "checklist": []
+   },
+   {
+    "label": "Mrežna infrastruktura za poslovnu stabilnost",
+    "h2": "Pravilno projektirana mreža znači manje problema i brži rad",
+    "intro": "Mreža je temelj svega: pristupa podacima, emailu, internetu, VoIP telefoniji i cloudu. Kada mreža ne radi dobro, cijeli ured staje. Ispravna konfiguracija od početka štedi vrijeme i novac na dugi rok.",
+    "cards": [
+     {
+      "h": "Što radimo na terenu",
+      "p": "Dokumentiramo postojeću topologiju, identificiramo uska grla i sigurnosne propuste. Konfiguriramo switcheve, routere i pristupne točke prema potrebama ureda. Postavljamo VLAN-ove za odvajanje prometa, firewall pravila za kontrolu pristupa i VPN tunele za sigurno povezivanje lokacija ili udaljenih zaposlenika."
+     },
+     {
+      "h": "Oprema s kojom radimo",
+      "p": "MikroTik RouterOS za napredne routing i firewall scenarije. Ubiquiti UniFi za WiFi pokrivanje ureda i više katova. TP-Link managed switchevi za VLAN konfiguraciju. Rješenja prilagođavamo budžetu i stvarnim potrebama tvrtke, bez forsiranja skupe enterprise opreme kada nije potrebna."
+     }
+    ],
+    "checklist": []
+   }
+  ],
+  "related": [
+   {
+    "href": "it-podrska-za-tvrtke-zagreb",
+    "text": "Za dugoročnu suradnju i vanjski IT odjel."
+   },
+   {
+    "href": "microsoft-365-administracija-zagreb",
+    "text": "Kada su email, licence i sigurnost ključni dio problema."
+   },
+   {
+    "href": "backup-i-sigurnost-podataka-zagreb",
+    "text": "Za smanjenje rizika i brži oporavak nakon incidenta."
+   }
+  ],
+  "faq": [
+   {
+    "q": "S kojom mrežnom opremom radite?",
+    "a": "Najčešće radimo s MikroTik i Ubiquiti (UniFi) opremom jer nudi odličan omjer cijene i mogućnosti za male i srednje tvrtke. Također konfiguriramo TP-Link managed switcheve i drugu enterprise opremu."
+   },
+   {
+    "q": "Možete li mi postaviti VPN za rad od kuće?",
+    "a": "Da. Postavljamo site-to-site VPN za povezivanje poslovnica i remote access VPN za zaposlenike koji rade od kuće. Koristimo L2TP/IPsec, WireGuard ili IKEv2 ovisno o opremi i potrebama."
+   },
+   {
+    "q": "WiFi u uredu je slab i nestabilan, možete li pomoći?",
+    "a": "To je jedan od najčešćih zahtjeva. Analiziramo pokrivenost, interferenciju i broj korisnika, zatim predlažemo optimalan raspored pristupnih točaka, kanale i SSID konfiguraciju."
+   },
+   {
+    "q": "Trebam li VLAN segmentaciju?",
+    "a": "Za tvrtke s više od 10 uređaja ili s gostujućim WiFi-jem, VLAN segmentacija je preporučljiva. Odvaja kritični poslovni promet od gostiju i IoT uređaja, čime se povećava i sigurnost i stabilnost."
+   }
+  ],
+  "ctaH": "Trebate stabilnu i sigurnu poslovnu mrežu?",
+  "ctaP": "Javite nam osnovne informacije o sustavu i problemu, a mi ćemo predložiti najbrži i najučinkovitiji sljedeći korak."
+ },
+ {
+  "slug": "microsoft-365-administracija-zagreb",
+  "title": "Microsoft 365 administracija Zagreb | Migracija, licence i sigurnost | IDEJA IT",
+  "description": "Microsoft 365 administracija Zagreb za tvrtke. Migracija emaila, Exchange Online, licence, Teams, SharePoint, MFA i sigurnosne politike.",
+  "serviceName": "Microsoft 365 administracija u Zagrebu",
+  "breadcrumb": "Microsoft 365 administracija u Zagrebu",
+  "eyebrow": "Exchange Online, Teams i SharePoint",
+  "h1": "Microsoft 365 administracija u Zagrebu",
+  "lead": "Microsoft 365 je često srce komunikacije i suradnje u tvrtki. Ako su licence, sigurnost ili pošta loše postavljeni, problemi se brzo preliju na cijeli tim.",
+  "bullets": [
+   "Migracije pošte i korisnika",
+   "Administracija licenci i sigurnosnih pravila",
+   "Teams, SharePoint i Exchange Online podrška"
+  ],
+  "faqHeading": "Pitanja koja najčešće dobivamo",
+  "sections": [
+   {
+    "label": "Što uključuje usluga",
+    "h2": "Praktična podrška bez generičkih obećanja",
+    "intro": null,
+    "cards": [
+     {
+      "h": "Što najčešće radimo",
+      "items": [
+       "Migracija s postojećeg email sustava",
+       "Exchange Online i DNS provjere",
+       "MFA i osnovne sigurnosne politike",
+       "Upravljanje licencama i korisnicima",
+       "Postavljanje Teams i SharePoint okruženja",
+       "Rješavanje problema s prijavom, sinkronizacijom i pristupom"
+      ]
+     }
+    ],
+    "checklist": []
+   },
+   {
+    "label": "Više od samo emaila",
+    "h2": "Microsoft 365 je platforma za komunikaciju, suradnju i sigurnost",
+    "intro": "Većina tvrtki koristi Microsoft 365 samo za email i Office aplikacije. Ali platforma nudi puno više: centralizirano upravljanje korisnicima, sigurnosne politike, dijeljenje dokumenata, interne komunikacijske kanale i alate za produktivnost. Pravilna konfiguracija čini razliku.",
+    "cards": [
+     {
+      "h": "Što najčešće popravljamo",
+      "p": "Email koji završava u spamu jer DNS zapisi nisu ispravni. Korisnici koji ne mogu pristupiti SharePointu jer nemaju odgovarajuće dozvole. Licence koje su dodijeljene ali neaktivne. MFA koji nije uključen pa su računi ranjivi na phishing napade. Teams koji je neorganiziran jer nitko nije postavio strukturu kanala."
+     },
+     {
+      "h": "Tipičan projekt migracije",
+      "p": "Analiza postojećeg email sustava i DNS konfiguracije. Priprema Microsoft 365 tenanta i korisničkih računa. Migracija pošte i kontakata bez gubitka podataka. Postavljanje MFA, sigurnosnih politika i email zaštite. Testiranje i verifikacija s korisnicima. Cijeli proces traje 1-3 dana ovisno o broju korisnika."
+     }
+    ],
+    "checklist": []
+   }
+  ],
+  "related": [
+   {
+    "href": "it-podrska-za-tvrtke-zagreb",
+    "text": "Za dugoročnu suradnju i vanjski IT odjel."
+   },
+   {
+    "href": "microsoft-365-administracija-zagreb",
+    "text": "Kada su email, licence i sigurnost ključni dio problema."
+   },
+   {
+    "href": "backup-i-sigurnost-podataka-zagreb",
+    "text": "Za smanjenje rizika i brži oporavak nakon incidenta."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Možete li migrirati email s web hostinga na Microsoft 365?",
+    "a": "Da. To je jedan od najčešćih scenarija. Selimo poštu s cPanel/Plesk hostinga ili lokalnog Exchange servera na Exchange Online, uključujući DNS promjene, MX zapise i DKIM/SPF konfiguraciju."
+   },
+   {
+    "q": "Što ako imamo previše licenci ili krive planove?",
+    "a": "Pregledavamo postojeće licence i predlažemo optimizaciju. Mnoge tvrtke plaćaju Business Premium za korisnike kojima je dovoljan Business Basic. Pravilnim rasporedom licenci moguća je značajna mjesečna ušteda."
+   },
+   {
+    "q": "Trebamo li MFA za sve korisnike?",
+    "a": "Da, višefaktorska autentifikacija je danas standard i prvi korak u zaštiti poslovnih računa. Postavljamo MFA za sve korisnike uz jasne upute za korištenje na mobitelu i računalu."
+   },
+   {
+    "q": "Možete li postaviti Teams i SharePoint za naš tim?",
+    "a": "Da. Konfiguriramo Teams kanale prema strukturi tvrtke, SharePoint stranice za dijeljenje dokumenata i postavke za eksterne suradnike. Cilj je da alati budu korisni, ne samo instalirani."
+   }
+  ],
+  "ctaH": "Trebate uredno postavljen Microsoft 365?",
+  "ctaP": "Javite nam osnovne informacije o sustavu i problemu, a mi ćemo predložiti najbrži i najučinkovitiji sljedeći korak."
+ },
+ {
+  "slug": "backup-i-sigurnost-podataka-zagreb",
+  "title": "Backup i sigurnost podataka Zagreb | Zaštita poslovnih sustava | IDEJA IT",
+  "description": "Backup i sigurnost podataka Zagreb za tvrtke. Strategija backupa, antivirus, MFA, zaštita pristupa, oporavak podataka i smanjenje poslovnog rizika.",
+  "serviceName": "Backup i sigurnost podataka za tvrtke",
+  "breadcrumb": "Backup i sigurnost podataka za tvrtke",
+  "eyebrow": "Zaštita poslovanja i oporavak",
+  "h1": "Backup i sigurnost podataka za tvrtke",
+  "lead": "Sigurnost nije samo antivirus. Tvrtke trebaju provjerljiv backup, kontrolu pristupa, osnovne sigurnosne politike i plan kako se vratiti u rad ako nešto pođe po zlu.",
+  "bullets": [
+   "Provjereni backup i restore postupci",
+   "Zaštita pristupa i korisničkih računa",
+   "Smanjenje rizika od zastoja i gubitka podataka"
+  ],
+  "faqHeading": "Pitanja koja najčešće dobivamo",
+  "sections": [
+   {
+    "label": "Što uključuje usluga",
+    "h2": "Praktična podrška bez generičkih obećanja",
+    "intro": null,
+    "cards": [
+     {
+      "h": "Što najčešće radimo",
+      "items": [
+       "Lokalni i cloud backup scenariji",
+       "Provjera restore postupaka",
+       "MFA i osnovna zaštita identiteta",
+       "Segmentacija pristupa osjetljivim podacima",
+       "Antivirus i sigurnosne preporuke",
+       "Plan oporavka za ključne sustave"
+      ]
+     }
+    ],
+    "checklist": []
+   },
+   {
+    "label": "Zaštita podataka u praksi",
+    "h2": "Sigurnost nije projekt nego proces koji traje",
+    "intro": "Tvrtke često tretiraju sigurnost kao jednokratni zadatak: kupi antivirus, napravi backup, gotovo. Ali sigurnost zahtijeva redovitu pažnju: provjeru backupa, ažuriranje pravila pristupa, edukaciju zaposlenika i prilagodbu novim prijetnjama.",
+    "cards": [
+     {
+      "h": "Naš pristup sigurnosti",
+      "p": "Počinjemo s procjenom trenutnog stanja: postoji li backup, radi li ispravno, tko ima pristup čemu, jesu li računi zaštićeni MFA-om, postoje li sigurnosne politike. Na temelju toga definiramo prioritete i korak po korak podižemo razinu zaštite bez ometanja svakodnevnog rada."
+     },
+     {
+      "h": "Scenariji koje pokrivamo",
+      "p": "Ransomware napad koji kriptira sve podatke na serveru. Zaposlenik slučajno obriše ključnu mapu s podacima. Laptop s poslovnim podacima bude ukraden. Hard disk na serveru otkaže. Za svaki od ovih scenarija trebate plan i provjerenu proceduru oporavka, ne improvizaciju u trenucima panike."
+     }
+    ],
+    "checklist": []
+   }
+  ],
+  "related": [
+   {
+    "href": "it-podrska-za-tvrtke-zagreb",
+    "text": "Za dugoročnu suradnju i vanjski IT odjel."
+   },
+   {
+    "href": "microsoft-365-administracija-zagreb",
+    "text": "Kada su email, licence i sigurnost ključni dio problema."
+   },
+   {
+    "href": "backup-i-sigurnost-podataka-zagreb",
+    "text": "Za smanjenje rizika i brži oporavak nakon incidenta."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Što ako nemam nikakav backup?",
+    "a": "Počinjemo s analizom kritičnih podataka i sustava. Zatim postavljamo backup prema 3-2-1 pravilu: tri kopije podataka, na dva različita medija, jedna izvan lokacije. Implementacija može biti gotova u jednom danu."
+   },
+   {
+    "q": "Treba li mi cloud backup ili lokalni?",
+    "a": "Idealno je imati oboje. Lokalni backup omogućuje brz oporavak, cloud backup štiti od fizičkih prijetnji poput požara ili krađe opreme. Ovisno o količini podataka, predlažemo optimalan omjer."
+   },
+   {
+    "q": "Kako provjeravate radi li backup ispravno?",
+    "a": "Redovito testiramo restore postupke, ne samo provjeravamo status backup zadatka. Nije dovoljno da backup kaže da je uspješan - moramo potvrditi da se podaci mogu stvarno vratiti i koristiti."
+   },
+   {
+    "q": "Što je MFA i zašto mi je potreban?",
+    "a": "Multi-Factor Authentication znači da za prijavu trebate lozinku i potvrdu na mobitelu. To sprječava pristup čak i ako netko sazna vašu lozinku. Danas je MFA osnovni minimum sigurnosti za poslovne račune."
+   }
+  ],
+  "ctaH": "Trebate bolju zaštitu podataka i oporavak?",
+  "ctaP": "Javite nam osnovne informacije o sustavu i problemu, a mi ćemo predložiti najbrži i najučinkovitiji sljedeći korak."
+ }
+]

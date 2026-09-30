@@ -1,0 +1,112 @@
+---
+// Prikaz tipične prijave od poziva do rješenja. Bez JS-a (i uz smanjeno kretanje) prikazuje se završeno stanje.
+const rows = [
+  { t: '08:41', k: 'Prijava', v: 'Telefonski poziv: „Outlook ne šalje poštu, računi klijentima kasne.“' },
+  { t: '08:44', k: 'Preuzeto', v: 'Udaljeni pristup odobren, korisnik je na vezi.' },
+  { t: '08:49', k: 'Dijagnoza', v: 'Exchange Online radi. Poštanski sandučić je pun: 49,6 od 50 GB.' },
+  { t: '08:57', k: 'Rješenje', v: 'Uključena online arhiva, starija pošta premještena pravilom.' },
+  { t: '09:02', k: 'Zatvoreno', v: 'Pošta odlazi. Dogovoren automatski premještaj stare pošte.' },
+];
+const minutes = 21;
+const target = 30;
+---
+<figure class="tc" data-state="resolved" aria-label="Primjer tipične prijave, riješene za 21 minutu">
+  <div class="tc-head">
+    <div>
+      <span class="tc-id">Prijava 2417</span>
+      <span class="tc-client">Knjigovodstveni ured, 8 korisnika</span>
+    </div>
+    <span class="tc-pill">
+      <span class="pill-open">Otvoreno</span>
+      <span class="pill-done">Riješeno</span>
+    </span>
+  </div>
+  <ol class="tc-log">
+    {rows.map((r) => (
+      <li class="tc-row">
+        <time>{r.t}</time>
+        <span class="tc-k">{r.k}</span>
+        <span class="tc-v">{r.v}</span>
+      </li>
+    ))}
+  </ol>
+  <div class="tc-sla">
+    <div class="sla-top">
+      <span>Vrijeme do rješenja</span>
+      <strong><span class="sla-n" data-to={minutes}>{minutes}</span> min</strong>
+    </div>
+    <div class="sla-bar" role="img" aria-label={`${minutes} od ciljanih ${target} minuta`}>
+      <span class="sla-fill" style={`--p:${(minutes / target) * 100}%`}></span>
+      <span class="sla-target"><span>cilj {target} min</span></span>
+    </div>
+  </div>
+  <figcaption>Primjer tipične prijave iz svakodnevnog rada</figcaption>
+</figure>
+
+<script>
+  const tc = document.querySelector<HTMLElement>('.tc');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (tc && !reduce) {
+    const rows = [...tc.querySelectorAll<HTMLElement>('.tc-row')];
+    const n = tc.querySelector<HTMLElement>('.sla-n')!;
+    const to = Number(n.dataset.to);
+    tc.dataset.state = 'playing';
+    rows.forEach((r) => r.classList.add('wait'));
+    let i = 0;
+    const step = () => {
+      if (i < rows.length) {
+        rows[i].classList.remove('wait');
+        const shown = [0, 3, 8, 16, 21][i] ?? to;
+        n.textContent = String(shown);
+        tc.style.setProperty('--run', String(shown / 30));
+        i++;
+        setTimeout(step, i === 1 ? 700 : 850);
+      } else {
+        tc.dataset.state = 'resolved';
+      }
+    };
+    setTimeout(step, 450);
+  }
+</script>
+
+<style>
+  .tc {
+    --run: .7;
+    background: var(--night-2); border: 1px solid var(--night-line); border-radius: var(--r-tile);
+    padding: 1.25rem 1.25rem 1rem; display: grid; gap: 1.1rem; min-width: 0;
+  }
+  .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--night-line); }
+  .tc-id { display: block; font-family: var(--mono); font-size: .85rem; color: var(--on-night-muted); }
+  .tc-client { display: block; font-weight: 650; font-stretch: 108%; margin-top: .15rem; }
+  .tc-pill { font-family: var(--mono); font-size: .8rem; font-weight: 600; padding: .3rem .65rem; border-radius: 999px; border: 1px solid; white-space: nowrap; }
+  .tc-pill span::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: currentColor; margin-right: .45rem; vertical-align: 1px; }
+  .tc[data-state='resolved'] .tc-pill { color: var(--ok); border-color: rgba(60, 203, 127, .45); }
+  .tc[data-state='playing'] .tc-pill { color: var(--signal); border-color: rgba(240, 71, 76, .5); }
+  .tc[data-state='resolved'] .pill-open, .tc[data-state='playing'] .pill-done { display: none; }
+
+  .tc-log { list-style: none; padding: 0; display: grid; gap: .15rem; position: relative; }
+  .tc-row { display: grid; grid-template-columns: 3.4rem 5.9rem 1fr; gap: .75rem; padding: .45rem 0; font-size: .93rem; line-height: 1.45; transition: opacity .35s ease, transform .35s ease; }
+  .tc-row.wait { opacity: 0; transform: translateY(4px); }
+  .tc-row time { font-family: var(--mono); font-size: .85rem; color: var(--on-night-muted); padding-top: .1rem; }
+  .tc-k { font-weight: 650; font-stretch: 108%; }
+  .tc-row:first-child .tc-k { color: var(--signal); }
+  .tc-row:last-child .tc-k { color: var(--ok); }
+  .tc-v { color: #c9d5e1; min-width: 0; }
+
+  .tc-sla { display: grid; gap: .55rem; padding-top: 1rem; border-top: 1px solid var(--night-line); }
+  .sla-top { display: flex; justify-content: space-between; align-items: baseline; color: var(--on-night-muted); font-size: .9rem; }
+  .sla-top strong { font-stretch: var(--wide); font-size: 1.6rem; color: var(--on-night); font-weight: 780; }
+  .sla-bar { position: relative; height: 10px; background: var(--night-3); border-radius: 5px; margin-bottom: 1.3rem; }
+  .sla-fill { position: absolute; inset: 0 auto 0 0; width: calc(var(--run) * 100%); border-radius: 5px; background: var(--ok); transition: width .6s ease; }
+  .tc[data-state='resolved'] .sla-fill { width: var(--p); }
+  .sla-target { position: absolute; top: -4px; bottom: -4px; right: 0; width: 2px; background: var(--on-night-muted); }
+  .sla-target span { position: absolute; top: 100%; right: 0; margin-top: .3rem; font-family: var(--mono); font-size: .75rem; color: var(--on-night-muted); white-space: nowrap; }
+  figcaption { font-size: .82rem; color: var(--on-night-muted); }
+
+  @media (max-width: 520px) {
+    .tc-row { grid-template-columns: 3.1rem 1fr; }
+    .tc-v { grid-column: 2; }
+    .tc-k { grid-column: 2; }
+    .tc-row time { grid-row: 1 / span 2; }
+  }
+</style>

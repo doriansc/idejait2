@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Stranica nije pronađena | IDEJA IT" description="Tražena stranica ne postoji." noindex>
+  <section class="night nf">
+    <div class="wrap">
+      <p class="status status-inc">404</p>
+      <h1 class="display">Ova stranica ne postoji</h1>
+      <p class="lede muted">Poveznica je možda zastarjela. Pogledajte usluge ili nas nazovite ako tražite nešto konkretno.</p>
+      <div class="acts"><a class="btn btn-signal" href="/">Početna stranica</a><a class="btn btn-line" href="/#usluge">Usluge</a></div>
+    </div>
+  </section>
+</Base>
+<style>
+  .nf { padding-block: clamp(5rem, 12vw, 9rem); }
+  .nf .wrap { display: grid; gap: 1.25rem; }
+  .nf h1 { font-size: var(--step-4); }
+  .acts { display: flex; gap: .8rem; flex-wrap: wrap; }
+</style>

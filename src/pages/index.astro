@@ -1,0 +1,211 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import TicketConsole from '../components/TicketConsole.astro';
+import Bento from '../components/Bento.astro';
+import Cases from '../components/Cases.astro';
+import Contact from '../components/Contact.astro';
+import { site } from '../data/site';
+
+const faq = [
+  { q: 'Radite li samo u Zagrebu?', a: 'Na lokaciju izlazimo u Zagrebu, Velikoj Gorici i okolici, a udaljenom podrškom možemo pokriti klijente diljem Hrvatske.' },
+  { q: 'Nudite li podršku bez ugovora?', a: 'Da. Možete nas angažirati po pozivu za konkretan problem ili kroz ugovorno održavanje s prioritetnom podrškom.' },
+  { q: 'Možete li preuzeti kompletno IT održavanje?', a: 'Da. To uključuje korisničku podršku, računala, servere, mrežu, Microsoft 365, backup i sigurnosne preporuke.' },
+  { q: 'Radite li s domaćim poslovnim sustavima?', a: 'Da. Imamo iskustva s okruženjima koja koriste Synesis, Pantheon, fiskalizaciju, FINA servise i slične poslovne procese.' },
+  { q: 'Koliko brzo reagirate?', a: 'Za hitne situacije cilj je prva reakcija unutar 30 minuta, uz udaljeno spajanje kada je to moguće.' },
+];
+
+const stack = [
+  { g: 'Oblak i identitet', items: ['Microsoft 365', 'Exchange Online', 'Entra ID', 'Intune', 'SharePoint i Teams'] },
+  { g: 'Infrastruktura', items: ['Windows Server', 'Active Directory', 'Hyper-V', 'Terminal serveri (RDS)', 'MikroTik i Ubiquiti'] },
+  { g: 'Poslovni sustavi', items: ['Synesis', 'Pantheon', 'Fiskalizacija i eRačun', 'FINA certifikati', 'Power Automate i Python'] },
+];
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => +b.data.pubDate - +a.data.pubDate)
+  .slice(0, 2);
+
+const schema = [
+  { '@type': 'WebSite', '@id': 'https://ideja-it.hr/#website', url: 'https://ideja-it.hr/', name: 'IDEJA IT', inLanguage: 'hr' },
+  {
+    '@type': 'WebPage', '@id': 'https://ideja-it.hr/#webpage', url: 'https://ideja-it.hr/',
+    name: 'IT podrška za tvrtke u Zagrebu | IDEJA IT', isPartOf: { '@id': 'https://ideja-it.hr/#website' },
+    about: { '@id': 'https://ideja-it.hr/#business' }, inLanguage: 'hr',
+    description: 'IT podrška za tvrtke u Zagrebu: održavanje servera, mreža, Microsoft 365, backup, sigurnosni audit i automatizacija.',
+  },
+  { '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Base
+  title="IT podrška za tvrtke u Zagrebu | Održavanje sustava, servera i mreža | IDEJA IT"
+  ogTitle="IT podrška za tvrtke u Zagrebu | IDEJA IT"
+  description="IT podrška za tvrtke u Zagrebu i okolici. Održavanje servera, mreža, Microsoft 365, backup, sigurnosni audit i hitne intervencije. Vanjski IT odjel za male i srednje tvrtke."
+  schema={schema}
+>
+  <section class="hero night">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 class="display">IT podrška za tvrtke u Zagrebu koja reagira za 30 minuta</h1>
+        <p class="lede muted">Brinemo o računalima, serverima, mreži, Microsoft 365 i sigurnosti podataka kao vaš vanjski IT odjel. Na lokaciji u Zagrebu i okolici, udaljeno u cijeloj Hrvatskoj.</p>
+        <div class="hero-cta">
+          <a class="btn btn-signal" href={`tel:${site.phone}`}>Nazovite {site.phoneDisplay}</a>
+          <a class="btn btn-line" href="#kontakt">Pošaljite upit</a>
+        </div>
+        <ul class="creds" aria-label="Certifikati">
+          <li><strong>ISO/IEC 27001:2022 Lead Auditor</strong> TÜV NORD</li>
+          <li><strong>CCNA</strong> Cisco</li>
+        </ul>
+      </div>
+      <TicketConsole />
+    </div>
+    <div class="wrap">
+      <dl class="facts">
+        <div><dt>godina rada</dt><dd>12+</dd></div>
+        <div><dt>aktivnih klijenata</dt><dd>100+</dd></div>
+        <div><dt>intervencija i projekata</dt><dd>500+</dd></div>
+        <div><dt>do prve reakcije</dt><dd>&lt;30 min</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="paper band" id="usluge" aria-labelledby="usluge-h">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display" id="usluge-h">Jedan partner za podršku, infrastrukturu i sigurnost</h2>
+        <p>Radimo s malim i srednjim tvrtkama i knjigovodstvenim uredima kojima treba brz, dostupan i tehnički jak partner, od svakodnevnih problema korisnika do sigurnosti i automatizacije.</p>
+      </div>
+      <Bento />
+    </div>
+  </section>
+
+  <section class="night band" id="slucajevi" aria-labelledby="slucajevi-h">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display" id="slucajevi-h">Tipični slučajevi iz prakse</h2>
+        <p>Anonimizirano, u obliku u kojem ih i dokumentiramo: što je korisnik primijetio, što je stvarni uzrok, što smo promijenili i kako sustav radi sada.</p>
+      </div>
+      <Cases />
+    </div>
+  </section>
+
+  <section class="paper band" aria-labelledby="rad-h">
+    <div class="wrap work-grid">
+      <div>
+        <div class="head">
+          <h2 class="display" id="rad-h">Od prve prijave do stabilnog sustava</h2>
+        </div>
+        <ol class="steps">
+          <li><h3>Brza procjena</h3><p>Telefon, email ili WhatsApp. Prvo utvrđujemo je li riječ o hitnoj intervenciji, problemu jednog korisnika ili uzroku u infrastrukturi.</p></li>
+          <li><h3>Rješavanje problema</h3><p>Po potrebi se spajamo udaljeno ili dolazimo na lokaciju. Cilj je da sustav i korisnici što prije rade normalno.</p></li>
+          <li><h3>Prevencija</h3><p>Nakon rješenja predlažemo mjere protiv ponavljanja: backup, nadzor, prava pristupa, zamjenu opreme ili bolju mrežnu arhitekturu.</p></li>
+        </ol>
+      </div>
+      <aside class="stack" aria-labelledby="stack-h">
+        <h3 id="stack-h">Sustavi s kojima radimo svakodnevno</h3>
+        {stack.map((s) => (
+          <div class="stack-g">
+            <h4>{s.g}</h4>
+            <ul>{s.items.map((i) => <li>{i}</li>)}</ul>
+          </div>
+        ))}
+        <p class="muted">Model suradnje: podrška po pozivu, mjesečno ugovorno održavanje ili potpuno preuzimanje IT-a.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="assess night" aria-labelledby="assess-h">
+    <div class="wrap assess-in">
+      <div>
+        <h2 class="display" id="assess-h">Koliko je zaštićen vaš Microsoft 365 i IT?</h2>
+        <p class="muted">Dvanaest pitanja o prijavama, uređajima, backupu i mreži. Dobivate ocjenu po područjima i tri koraka koja najviše smanjuju rizik. Odgovori ostaju u vašem pregledniku.</p>
+      </div>
+      <a class="btn btn-signal" href="/samoprocjena/">Pokrenite samoprocjenu</a>
+    </div>
+  </section>
+
+  <section class="paper band" aria-labelledby="blog-h">
+    <div class="wrap">
+      <div class="head-row">
+        <h2 class="display" id="blog-h">Iz bloga</h2>
+        <a href="/blog/">Svi članci</a>
+      </div>
+      <div class="posts">
+        {posts.map((p) => (
+          <a class="post" href={`/blog/${p.id}/`}>
+            <time datetime={p.data.pubDate.toISOString()}>{p.data.pubDate.toLocaleDateString('hr-HR', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+            <h3>{p.data.title}</h3>
+            <p>{p.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="paper band faq-band" id="faq" aria-labelledby="faq-h">
+    <div class="wrap faq-grid">
+      <h2 class="display" id="faq-h">Što tvrtke pitaju prije početka suradnje</h2>
+      <div class="faq">
+        {faq.map((f) => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+      </div>
+    </div>
+  </section>
+
+  <Contact />
+</Base>
+
+<style>
+  .hero { padding-top: clamp(3rem, 7vw, 5.5rem); }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+  .hero h1 { font-size: var(--step-4); }
+  .hero-copy { display: grid; gap: 1.6rem; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: .8rem; }
+  .creds { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+  .creds li { font-size: .9rem; color: var(--on-night-muted); border: 1px solid var(--night-line); border-radius: var(--r-ctl); padding: .4rem .75rem; }
+  .creds strong { color: var(--on-night); font-weight: 650; margin-right: .35rem; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: clamp(3rem, 6vw, 4.5rem); border-top: 1px solid var(--night-line); }
+  .facts div { display: flex; flex-direction: column-reverse; gap: .2rem; padding: 1.4rem 1rem 1.6rem 0; }
+  .facts div + div { padding-left: 1.25rem; border-left: 1px solid var(--night-line); }
+  .facts dd { margin: 0; font-stretch: var(--wide); font-weight: 780; font-size: var(--step-2); }
+  .facts dt { color: var(--on-night-muted); font-size: .92rem; }
+
+  .work-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 5rem); }
+  .steps { list-style: none; padding: 0; counter-reset: s; display: grid; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 3rem 1fr; column-gap: 1rem; padding: 1.25rem 0; border-top: 1px solid var(--paper-line); }
+  .steps li::before { content: counter(s); grid-row: span 2; font-stretch: var(--wide); font-weight: 800; font-size: 1.6rem; line-height: 1.1; color: var(--signal-ink); }
+  .steps p { color: var(--ink-muted); max-width: 56ch; margin-top: .3rem; }
+  .stack { background: #fff; border: 1px solid var(--paper-line); border-radius: var(--r-tile); padding: 1.75rem; display: grid; gap: 1.25rem; align-content: start; }
+  .stack h3 { font-size: 1.1rem; }
+  .stack h4 { font-size: .9rem; font-weight: 650; color: var(--ink-muted); margin-bottom: .45rem; }
+  .stack ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+  .stack li { font-size: .92rem; border: 1px solid var(--paper-line); border-radius: var(--r-ctl); padding: .2rem .6rem; }
+  .stack > p { font-size: .95rem; border-top: 1px solid var(--paper-line); padding-top: 1.1rem; }
+
+  .assess { border-top: 1px solid var(--night-line); }
+  .assess-in { display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding-block: clamp(3rem, 6vw, 4.5rem); }
+  .assess h2 { font-size: var(--step-3); margin-bottom: .8rem; }
+  .assess p { max-width: 60ch; }
+  .assess .btn { flex: none; }
+
+  .head-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
+  .head-row a { color: var(--ink); text-underline-offset: 4px; font-weight: 600; }
+  .posts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .post { display: grid; gap: .6rem; align-content: start; padding: 1.75rem; background: #fff; border: 1px solid var(--paper-line); border-radius: var(--r-tile); text-decoration: none; }
+  .post:hover { border-color: var(--ink); }
+  .post:hover h3 { text-decoration: underline; text-underline-offset: 4px; }
+  .post time { font-size: .88rem; color: var(--ink-muted); }
+  .post p { color: var(--ink-muted); }
+
+  .faq-band { padding-top: 0; }
+  .faq-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 5vw, 4rem); border-top: 1px solid var(--paper-line); padding-top: clamp(3rem, 6vw, 5rem); }
+  .faq-grid h2 { font-size: var(--step-3); }
+  .faq-grid .faq { border-top: 0; }
+
+  @media (max-width: 980px) {
+    .hero-grid, .work-grid, .faq-grid { grid-template-columns: 1fr; }
+    .facts { grid-template-columns: repeat(2, 1fr); }
+    .facts div:nth-child(3) { padding-left: 0; border-left: 0; }
+    .facts div:nth-child(n+3) { border-top: 1px solid var(--night-line); }
+    .assess-in { flex-direction: column; align-items: flex-start; }
+    .posts { grid-template-columns: 1fr; }
+  }
+</style>

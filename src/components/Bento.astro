@@ -1,0 +1,76 @@
+---
+import { services, bentoOrder, bySlug } from '../data/services';
+import { site } from '../data/site';
+const tiles = bentoOrder.map(bySlug);
+---
+<div class="bento">
+  {tiles.map((s) => (
+    <a class:list={['tile', `tile-${s.tile.size}`]} href={`/${s.slug}/`}>
+      <div class="tile-top">
+        <h3>{s.tile.name}</h3>
+        {s.isNew && <span class="new">Novo</span>}
+      </div>
+      <p>{s.tile.line}</p>
+      {s.tile.size === 'hero' && (
+        <ul class="checks">
+          {s.tile.spec.map((x) => <li><span class="status status-ok" aria-hidden="true"></span>{x}</li>)}
+        </ul>
+      )}
+      {s.tile.size === 'wide' && s.tile.spec.length > 0 && (
+        <ul class="spec">{s.tile.spec.map((x) => <li>{x}</li>)}</ul>
+      )}
+    </a>
+  ))}
+  <div class="tile tile-urgent">
+    <div>
+      <h3>Nešto ne radi upravo sada?</h3>
+      <p>Prva reakcija unutar 30 minuta, udaljenim pristupom ili dolaskom na lokaciju u Zagrebu i okolici. Bez ugovora, po pozivu.</p>
+    </div>
+    <div class="urgent-act">
+      <a class="btn btn-signal" href={`tel:${site.phone}`}>Nazovite {site.phoneDisplay}</a>
+      <a class="urgent-link" href="/it-podrska-zagreb/">IT podrška po pozivu</a>
+    </div>
+  </div>
+</div>
+<style>
+  .bento { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .tile {
+    display: flex; flex-direction: column; gap: .7rem; min-width: 0;
+    padding: 1.5rem; background: #fff; border: 1px solid var(--paper-line); border-radius: var(--r-tile);
+    text-decoration: none; color: var(--ink); transition: border-color .15s;
+  }
+  a.tile:hover { border-color: var(--ink); }
+  a.tile:hover h3 { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .tile p { color: var(--ink-muted); font-size: .98rem; }
+  .tile-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+  .tile h3 { font-size: 1.18rem; font-stretch: 112%; }
+  .new { font-size: .78rem; font-weight: 650; color: var(--signal-ink); border: 1px solid currentColor; border-radius: 999px; padding: .05rem .55rem; white-space: nowrap; }
+  .tile-hero { grid-column: span 2; grid-row: span 2; background: var(--night); color: var(--on-night); border-color: var(--night); padding: 2rem; }
+  a.tile-hero:hover { border-color: var(--signal); }
+  .tile-hero h3 { font-size: var(--step-2); font-stretch: var(--wide); font-weight: 780; }
+  .tile-hero p { color: var(--on-night-muted); font-size: 1.05rem; max-width: 40ch; }
+  .checks { list-style: none; padding: 1.25rem 0 0; margin-top: auto; display: grid; gap: 0; border-top: 1px solid var(--night-line); }
+  .checks li { display: flex; gap: .75rem; align-items: baseline; padding: .6rem 0; border-bottom: 1px solid var(--night-line); font-size: .98rem; }
+  .checks .status { transform: translateY(-1px); }
+  .tile-wide { grid-column: span 2; }
+  .spec { list-style: none; padding: 0; margin-top: auto; display: flex; flex-wrap: wrap; gap: .4rem; }
+  .spec li { font-size: .85rem; background: var(--paper); border-radius: 999px; padding: .2rem .7rem; color: var(--ink); }
+  .tile-urgent {
+    grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem;
+    background: var(--night-2); color: var(--on-night); border-color: var(--night-2);
+  }
+  .tile-urgent p { color: var(--on-night-muted); max-width: 60ch; margin-top: .4rem; }
+  .urgent-act { display: flex; align-items: center; gap: 1.5rem; flex: none; }
+  .urgent-link { color: var(--on-night); text-underline-offset: 4px; }
+  @media (max-width: 980px) {
+    .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tile-hero { grid-row: auto; }
+    .tile-urgent { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 600px) {
+    .bento { grid-template-columns: 1fr; }
+    .tile-hero, .tile-wide { grid-column: auto; }
+    .tile-hero { padding: 1.5rem; }
+    .urgent-act { flex-direction: column; align-items: stretch; width: 100%; gap: 1rem; }
+  }
+</style>

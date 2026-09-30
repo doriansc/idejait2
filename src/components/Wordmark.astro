@@ -1,0 +1,12 @@
+---
+const { tag = 'span' } = Astro.props;
+const Tag = tag;
+---
+<Tag class="wordmark"><span class="wm-mark" aria-hidden="true"></span>IDEJA<b>IT</b></Tag>
+<style>
+  .wordmark { display: inline-flex; align-items: center; gap: .55rem; font-stretch: 125%; font-weight: 800; font-size: 1.12rem; letter-spacing: .01em; color: var(--on-night); }
+  .wordmark b { color: var(--signal); font-weight: 800; margin-left: -.2rem; }
+  /* Oznaka: statusna lampica u okviru uređaja */
+  .wm-mark { width: 22px; height: 22px; border: 2px solid currentColor; border-radius: 5px; position: relative; flex: none; }
+  .wm-mark::after { content: ''; position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--ok); right: 3px; bottom: 3px; }
+</style>

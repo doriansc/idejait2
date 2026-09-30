@@ -1,0 +1,19 @@
+---
+import Doc from '../layouts/Doc.astro';
+import { site } from '../data/site';
+---
+<Doc title="Podaci o pružatelju usluge | IDEJA IT" description="Podaci o pružatelju usluga informacijskog društva sukladno Zakonu o elektroničkoj trgovini." h1="Podaci o pružatelju usluge">
+  <table>
+    <tbody>
+      <tr><th>Naziv</th><td>{site.legalName}</td></tr>
+      <tr><th>Sjedište</th><td>{site.street}, {site.postalCode} {site.city}</td></tr>
+      <tr><th>OIB</th><td><span class="todo">upisati OIB</span></td></tr>
+      <tr><th>Registar</th><td><span class="todo">upisati: obrtni registar, nadležno tijelo i MBO</span></td></tr>
+      <tr><th>Vlasnik</th><td>{site.owner}</td></tr>
+      <tr><th>Telefon</th><td><a href={`tel:${site.phone}`}>{site.phoneDisplay}</a></td></tr>
+      <tr><th>Email</th><td><a href={`mailto:${site.email}`}>{site.email}</a></td></tr>
+      <tr><th>Poslovni račun</th><td><span class="todo">upisati IBAN i banku ili ukloniti redak</span></td></tr>
+    </tbody>
+  </table>
+  <p>Stranica služi informiranju o uslugama. Cijene i uvjeti suradnje dogovaraju se pojedinačno i vrijede prema ponudi ili ugovoru.</p>
+</Doc>

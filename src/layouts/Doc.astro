@@ -1,0 +1,15 @@
+---
+import Base from './Base.astro';
+const { title, description, h1, updated } = Astro.props;
+---
+<Base title={title} description={description}>
+  <section class="night doc-hero">
+    <div class="wrap"><h1 class="display">{h1}</h1>{updated && <p class="muted">Zadnja izmjena: {updated}</p>}</div>
+  </section>
+  <section class="paper band"><div class="wrap"><div class="prose"><slot /></div></div></section>
+</Base>
+<style>
+  .doc-hero { padding-block: clamp(3rem, 6vw, 4.5rem); }
+  .doc-hero h1 { font-size: clamp(2rem, 1.4rem + 2.5vw, 3.2rem); margin-bottom: .75rem; }
+  :global(.todo) { background: #fff1b8; outline: 1px dashed #b88a00; padding: 0 .25em; border-radius: 3px; }
+</style>

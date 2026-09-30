@@ -1,0 +1,27 @@
+---
+import Doc from '../layouts/Doc.astro';
+import { site } from '../data/site';
+---
+<Doc title="Politika privatnosti | IDEJA IT" description="Kako IDEJA IT obrađuje osobne podatke iz kontakt obrasca, emaila i telefonskih upita." h1="Politika privatnosti" updated="1. listopada 2026.">
+  <h2>Voditelj obrade</h2>
+  <p>{site.legalName}, {site.street}, {site.postalCode} {site.city}. Za sva pitanja o osobnim podacima pišite na <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+
+  <h2>Koje podatke obrađujemo i zašto</h2>
+  <p><strong>Kontakt obrazac, email, telefon i WhatsApp.</strong> Kada nam pošaljete upit, obrađujemo ime i prezime, naziv tvrtke, email ili telefon, sadržaj poruke i odabranu hitnost. Podatke koristimo samo da bismo odgovorili na upit i pripremili ponudu, što je pravna osnova iz članka 6. stavka 1. točke (b) Opće uredbe o zaštiti podataka (radnje prije sklapanja ugovora na vaš zahtjev).</p>
+  <p><strong>Samoprocjena.</strong> Odgovori na pitanja samoprocjene obrađuju se isključivo u vašem pregledniku i ne šalju nam se. Rezultat dobivamo samo ako ga sami pošaljete kroz obrazac.</p>
+  <p><strong>Posjet stranici.</strong> Stranica ne koristi kolačiće za praćenje ni oglašavanje. Fontovi se učitavaju s našeg poslužitelja, a ne s vanjskih servisa. <span class="todo">Ako uključite Cloudflare Web Analytics: navesti da se koristi analitika bez kolačića koja ne identificira posjetitelje.</span></p>
+
+  <h2>Tko još vidi podatke</h2>
+  <ul>
+    <li>Cloudflare, Inc., koji poslužuje stranicu i prosljeđuje poruke iz obrasca.</li>
+    <li>Microsoft Ireland Operations Ltd., preko kojega primamo i čuvamo email (Microsoft 365).</li>
+    <li>Ako nam pišete preko WhatsAppa, na tu komunikaciju primjenjuju se i uvjeti usluge WhatsApp.</li>
+  </ul>
+  <p>Podatke ne prodajemo i ne ustupamo trećima za marketing.</p>
+
+  <h2>Koliko dugo čuvamo podatke</h2>
+  <p>Upite koji ne završe suradnjom čuvamo najduže <span class="todo">12 mjeseci</span> od zadnje komunikacije. Ako postanete klijent, podaci se čuvaju onoliko koliko to zahtijeva ugovor i propisi o poslovnoj dokumentaciji.</p>
+
+  <h2>Vaša prava</h2>
+  <p>Imate pravo na pristup svojim podacima, ispravak, brisanje, ograničenje obrade i prigovor. Zahtjev pošaljite na <a href={`mailto:${site.email}`}>{site.email}</a> i odgovorit ćemo najkasnije u roku od mjesec dana. Ako smatrate da podatke obrađujemo protivno propisima, možete podnijeti pritužbu Agenciji za zaštitu osobnih podataka (<a href="https://azop.hr">azop.hr</a>).</p>
+</Doc>

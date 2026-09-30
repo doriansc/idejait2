@@ -1,0 +1,263 @@
+---
+import Base from '../layouts/Base.astro';
+import Contact from '../components/Contact.astro';
+
+type Q = { id: string; q: string; w: number; fix: string };
+const areas: { name: string; qs: Q[] }[] = [
+  {
+    name: 'Identitet i e-mail',
+    qs: [
+      { id: 'mfa', w: 3, q: 'Imaju li svi korisnički računi uključenu višefaktorsku prijavu (MFA)?', fix: 'Uključite MFA za sve račune, počevši od administratora. U Microsoft 365 to se radi sigurnosnim zadanim postavkama (security defaults) ili pravilima Conditional Access.' },
+      { id: 'legacy', w: 3, q: 'Znate li koji se računi i uređaji još prijavljuju starim protokolima, poput SMTP AUTH na skeneru ili aplikaciji koja šalje mail?', fix: 'Pregledajte logove prijava i pronađite zastarjelu autentikaciju. Zamijenite je modernom ili je blokirajte pravilom, jer takve prijave zaobilaze MFA.' },
+      { id: 'admin', w: 2, q: 'Koriste li administratori zasebne račune samo za administraciju?', fix: 'Odvojite administratorske uloge od svakodnevnih računa i smanjite broj globalnih administratora na dva ili tri.' },
+      { id: 'dmarc', w: 2, q: 'Jesu li za vašu domenu postavljeni SPF, DKIM i DMARC zapisi?', fix: 'Postavite SPF i DKIM, a zatim DMARC s izvještavanjem. Tako je teže slati lažnu poštu u vaše ime, a vaša pošta rjeđe završava u neželjenoj.' },
+    ],
+  },
+  {
+    name: 'Uređaji',
+    qs: [
+      { id: 'patch', w: 3, q: 'Instaliraju li se sigurnosna ažuriranja na računala i servere redovito i provjerava li netko da su stvarno instalirana?', fix: 'Uvedite automatska ažuriranja s nadzorom i mjesečnu provjeru servera. Najveći broj napada koristi poznate propuste za koje zakrpa već postoji.' },
+      { id: 'disk', w: 2, q: 'Imaju li sva prijenosna računala uključenu enkripciju diska (BitLocker) i ažurnu zaštitu od zlonamjernog softvera?', fix: 'Uključite BitLocker na svim prijenosnim računalima, a ključeve za oporavak spremite centralno. Provjerite da je zaštita od malwarea aktivna i ažurna na svakom uređaju.' },
+    ],
+  },
+  {
+    name: 'Backup',
+    qs: [
+      { id: 'offsite', w: 3, q: 'Postoji li backup ključnih podataka koji je odvojen od originala, na drugom uređaju, lokaciji ili u oblaku?', fix: 'Uvedite pravilo 3-2-1: tri kopije, na dva medija, od kojih je jedna izvan ureda. Barem jedna kopija treba biti nedostupna ransomwareu.' },
+      { id: 'restore', w: 3, q: 'Je li u zadnjih šest mjeseci netko stvarno vratio podatke iz backupa da provjeri da radi?', fix: 'Zakažite redoviti test vraćanja podataka i zapišite koliko je trajao. Backup koji nikad nije testiran ne može se smatrati backupom.' },
+      { id: 'm365bk', w: 2, q: 'Radi li se zaseban backup Microsoft 365 podataka, odnosno pošte, OneDrivea i SharePointa?', fix: 'Microsoft održava dostupnost usluge, ali ne štiti od vašeg brisanja, ransomwarea ni isteka razdoblja zadržavanja. Za poslovno važne podatke uvedite zaseban backup.' },
+    ],
+  },
+  {
+    name: 'Mreža i pristupi',
+    qs: [
+      { id: 'rdp', w: 3, q: 'Je li udaljeni pristup serverima i računalima (RDP) moguć samo preko VPN-a, a ne izravno s interneta?', fix: 'Zatvorite RDP prema internetu i omogućite pristup samo preko VPN-a ili gatewaya s MFA-om. Izloženi RDP jedan je od najčešćih ulaza za ransomware.' },
+      { id: 'seg', w: 2, q: 'Jesu li gosti i uređaji poput kamera i pisača odvojeni od mreže s poslovnim računalima?', fix: 'Odvojite goste, kamere i IoT uređaje u zasebne mreže (VLAN) s pravilima na firewallu. Kompromitirani uređaj tada ne vidi poslovne podatke.' },
+      { id: 'offboard', w: 2, q: 'Znate li tko ima pristup čemu i ukida li se pristup istog dana kad netko ode iz tvrtke?', fix: 'Vodite popis pristupa po zaposleniku i uvedite postupak odlaska: blokada računa, preuzimanje pošte i podataka, promjena dijeljenih lozinki.' },
+    ],
+  },
+];
+const total = areas.reduce((n, a) => n + a.qs.length, 0);
+const options = [
+  { v: 'yes', l: 'Da' },
+  { v: 'part', l: 'Djelomično' },
+  { v: 'no', l: 'Ne' },
+  { v: 'unk', l: 'Ne znam' },
+];
+let n = 0;
+const numbered = areas.map((a) => ({ ...a, qs: a.qs.map((q) => ({ ...q, n: ++n })) }));
+---
+<Base
+  title="IT i Microsoft 365 sigurnosna samoprocjena | IDEJA IT"
+  description="Dvanaest pitanja o prijavama, uređajima, backupu i mreži. Dobivate ocjenu po područjima i tri koraka koja najviše smanjuju rizik. Odgovori ostaju u vašem pregledniku."
+  schema={[{ '@type': 'WebPage', '@id': 'https://ideja-it.hr/samoprocjena/#webpage', url: 'https://ideja-it.hr/samoprocjena/', name: 'IT i Microsoft 365 sigurnosna samoprocjena', inLanguage: 'hr' }]}
+>
+  <section class="night sa-hero">
+    <div class="wrap">
+      <h1 class="display">Sigurnosna samoprocjena za male i srednje tvrtke</h1>
+      <p class="lede muted">Odgovorite na {total} pitanja o tome kako su postavljeni prijava, uređaji, backup i mreža. Na kraju dobivate ocjenu po područjima i tri koraka koja najviše smanjuju rizik. Ništa se ne šalje dok sami ne odlučite poslati rezultat.</p>
+    </div>
+  </section>
+
+  <section class="paper band sa">
+    <form class="wrap sa-form" id="sa" novalidate>
+      {numbered.map((a) => (
+        <fieldset class="area">
+          <legend><h2>{a.name}</h2></legend>
+          {a.qs.map((q) => (
+            <div class="q" role="radiogroup" aria-labelledby={`q-${q.id}`} data-q={q.id}>
+              <p class="q-t" id={`q-${q.id}`}><span class="q-n">{q.n}</span>{q.q}</p>
+              <div class="opts">
+                {options.map((o) => (
+                  <label><input type="radio" name={q.id} value={o.v} /><span>{o.l}</span></label>
+                ))}
+              </div>
+            </div>
+          ))}
+        </fieldset>
+      ))}
+      <div class="sa-bar">
+        <p class="progress" aria-live="polite"><strong id="done">0</strong> od {total} odgovoreno</p>
+        <button class="btn btn-signal" type="submit">Prikažite rezultat</button>
+      </div>
+      <p class="sa-err" role="alert"></p>
+    </form>
+  </section>
+
+  <section class="night band result" id="rezultat" hidden aria-labelledby="res-h">
+    <div class="wrap res-grid">
+      <div class="res-score">
+        <h2 id="res-h">Vaš rezultat</h2>
+        <p class="score"><span id="score">0</span><small>/100</small></p>
+        <p class="band-l" id="band"></p>
+        <div class="areas" id="areas"></div>
+      </div>
+      <div class="res-fix">
+        <h3>Tri koraka koja najviše smanjuju rizik</h3>
+        <ol id="top"></ol>
+        <details class="all">
+          <summary>Svi nalazi (<span id="all-n">0</span>)</summary>
+          <ul id="all"></ul>
+        </details>
+        <p class="muted note">Samoprocjena je orijentacijska i ne zamjenjuje pregled sustava. Odgovor „Ne znam“ računa se kao nalaz, jer kontrola koju nitko ne prati u praksi ne postoji.</p>
+        <a class="btn btn-signal" href="#kontakt">Pošaljite rezultat i dogovorite pregled</a>
+      </div>
+    </div>
+  </section>
+
+  <Contact
+    heading="Želite da netko pogleda vaš sustav?"
+    text="Rezultat samoprocjene možete poslati uz poruku. Predložit ćemo opseg pregleda i odgovoriti što bi trebalo napraviti prvo."
+    subject="Samoprocjena: zahtjev za pregled"
+  />
+
+  <script type="application/json" id="sa-data" set:html={JSON.stringify(areas)} />
+</Base>
+
+<script>
+  type Q = { id: string; q: string; w: number; fix: string };
+  type Area = { name: string; qs: Q[] };
+  const areas: Area[] = JSON.parse(document.getElementById('sa-data')!.textContent!);
+  const form = document.getElementById('sa') as HTMLFormElement;
+  const total = areas.reduce((n, a) => n + a.qs.length, 0);
+  const done = document.getElementById('done')!;
+  const err = form.querySelector<HTMLElement>('.sa-err')!;
+  const val = { yes: 1, part: 0.5, no: 0, unk: 0 } as Record<string, number>;
+  const label = { part: 'djelomično', no: 'ne', unk: 'ne znate' } as Record<string, string>;
+
+  const answers = () => Object.fromEntries(new FormData(form)) as Record<string, string>;
+  form.addEventListener('change', (e) => {
+    done.textContent = String(Object.keys(answers()).length);
+    (e.target as HTMLElement).closest('.q')?.classList.remove('missing');
+    if (Object.keys(answers()).length === total) err.textContent = '';
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const a = answers();
+    const missing = areas.flatMap((ar) => ar.qs).filter((q) => !a[q.id]);
+    form.querySelectorAll('.q').forEach((el) => el.classList.toggle('missing', !a[(el as HTMLElement).dataset.q!]));
+    if (missing.length) {
+      err.textContent = `Odgovorite još na ${missing.length} ${missing.length === 1 ? 'pitanje' : missing.length < 5 ? 'pitanja' : 'pitanja'}. Ako niste sigurni, odaberite „Ne znam“.`;
+      form.querySelector<HTMLInputElement>(`[name=${missing[0].id}]`)?.focus();
+      return;
+    }
+    render(a);
+  });
+
+  function render(a: Record<string, string>) {
+    let got = 0, max = 0;
+    const findings: (Q & { area: string; ans: string; gap: number })[] = [];
+    const areaHtml = areas.map((ar) => {
+      let g = 0, m = 0;
+      ar.qs.forEach((q) => {
+        const v = val[a[q.id]];
+        g += v * q.w; m += q.w;
+        if (v < 1) findings.push({ ...q, area: ar.name, ans: a[q.id], gap: (1 - v) * q.w });
+      });
+      got += g; max += m;
+      const p = Math.round((g / m) * 100);
+      const cls = p >= 80 ? 'ok' : p >= 50 ? 'warn' : 'bad';
+      return `<div class="ar"><div class="ar-top"><span>${ar.name}</span><span>${p}%</span></div><div class="ar-bar"><span class="${cls}" style="width:${p}%"></span></div></div>`;
+    });
+    const score = Math.round((got / max) * 100);
+    document.getElementById('score')!.textContent = String(score);
+    const band = document.getElementById('band')!;
+    band.dataset.kind = score >= 80 ? 'ok' : score >= 50 ? 'warn' : 'bad';
+    band.textContent = score >= 80
+      ? 'Dobra osnova. Preostale nalaze vrijedi zatvoriti planski.'
+      : score >= 50
+      ? 'Srednji rizik. Osnovne kontrole postoje, ali neke ključne nedostaju.'
+      : 'Visok rizik. Nekoliko osnovnih kontrola nedostaje ili se ne prati.';
+    document.getElementById('areas')!.innerHTML = areaHtml.join('');
+
+    findings.sort((x, y) => y.gap - x.gap || y.w - x.w);
+    const li = (f: (typeof findings)[number]) => {
+      const i = f.fix.indexOf('. ');
+      const head = i === -1 ? f.fix : f.fix.slice(0, i + 1);
+      const rest = i === -1 ? '' : f.fix.slice(i + 2);
+      return `<li><strong>${head}</strong> ${rest}<span class="src">${f.area}: odgovor „${label[f.ans]}“</span></li>`;
+    };
+    document.getElementById('top')!.innerHTML = findings.length
+      ? findings.slice(0, 3).map(li).join('')
+      : '<li><strong>Nema otvorenih nalaza.</strong> Vrijedi povremeno provjeriti da kontrole i dalje rade kako je zamišljeno.</li>';
+    document.getElementById('all')!.innerHTML = findings.map(li).join('');
+    document.getElementById('all-n')!.textContent = String(findings.length);
+
+    const summary = [
+      `Rezultat samoprocjene: ${score}/100`,
+      ...areas.map((ar, i) => `${ar.name}: ${document.querySelectorAll('.ar-top span:last-child')[i].textContent}`),
+      '',
+      'Nalazi:',
+      ...findings.map((f) => `- ${f.q} (${label[f.ans]})`),
+      '',
+      'Željeli bismo dogovoriti pregled.',
+    ].join('\n');
+    const ta = document.querySelector<HTMLTextAreaElement>('#kontakt textarea');
+    if (ta) ta.value = summary;
+
+    const res = document.getElementById('rezultat')!;
+    res.hidden = false;
+    res.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    (document.getElementById('res-h') as HTMLElement).setAttribute('tabindex', '-1');
+    (document.getElementById('res-h') as HTMLElement).focus({ preventScroll: true });
+  }
+</script>
+
+<style>
+  .sa-hero { padding-block: clamp(3rem, 7vw, 5rem); }
+  .sa-hero h1 { font-size: clamp(2.1rem, 1.4rem + 3vw, 3.6rem); max-width: 18ch; margin-bottom: 1.25rem; }
+  .sa-form { display: grid; gap: 3rem; max-width: 900px; }
+  .area { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .area legend { padding: 0; margin-bottom: .5rem; }
+  .area h2 { font-size: var(--step-2); font-stretch: 112%; }
+  .q { padding: 1.25rem 0; border-top: 1px solid var(--paper-line); display: grid; gap: .85rem; }
+  .q.missing .q-t { color: var(--signal-ink); }
+  .q-t { font-weight: 600; font-size: 1.05rem; display: grid; grid-template-columns: 2rem 1fr; }
+  .q-n { color: var(--ink-muted); font-weight: 500; }
+  .opts { display: grid; grid-template-columns: repeat(4, minmax(0, 8.5rem)); gap: .5rem; padding-left: 2rem; }
+  .opts label { position: relative; }
+  .opts input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .opts span { display: flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--paper-line); background: #fff; border-radius: var(--r-ctl); font-weight: 550; font-size: .95rem; cursor: pointer; }
+  .opts input:checked + span { border-color: var(--ink); background: var(--ink); color: #fff; }
+  .opts input:focus-visible + span { outline: 2px solid var(--signal-ink); outline-offset: 2px; }
+  .sa-bar { position: sticky; bottom: 1rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .85rem 1rem .85rem 1.25rem; background: var(--night); color: var(--on-night); border-radius: var(--r-tile); z-index: 5; }
+  .progress { color: var(--on-night-muted); }
+  .progress strong { color: var(--on-night); }
+  .sa-err { color: var(--signal-ink); font-weight: 600; }
+  .sa-err:empty { display: none; }
+
+  .res-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(2rem, 6vw, 5rem); }
+  .res-score h2 { font-size: 1.1rem; font-stretch: 110%; color: var(--on-night-muted); outline: none; }
+  .score { font-stretch: var(--wide); font-weight: 800; font-size: clamp(4rem, 3rem + 5vw, 7rem); line-height: 1; margin: .5rem 0 .75rem; }
+  .score small { font-size: .3em; color: var(--on-night-muted); font-weight: 600; margin-left: .2rem; }
+  .band-l { font-weight: 600; margin-bottom: 2rem; max-width: 36ch; }
+  .band-l[data-kind='ok'] { color: var(--ok); }
+  .band-l[data-kind='warn'] { color: var(--warn); }
+  .band-l[data-kind='bad'] { color: var(--signal); }
+  :global(.ar) { padding: .7rem 0; border-top: 1px solid var(--night-line); }
+  :global(.ar-top) { display: flex; justify-content: space-between; font-size: .95rem; margin-bottom: .45rem; }
+  :global(.ar-top span:last-child) { font-family: var(--mono); color: var(--on-night-muted); }
+  :global(.ar-bar) { height: 8px; background: var(--night-3); border-radius: 4px; overflow: hidden; }
+  :global(.ar-bar span) { display: block; height: 100%; border-radius: 4px; }
+  :global(.ar-bar .ok) { background: var(--ok); }
+  :global(.ar-bar .warn) { background: var(--warn); }
+  :global(.ar-bar .bad) { background: var(--signal); }
+  .res-fix { display: grid; gap: 1.25rem; align-content: start; }
+  .res-fix h3 { font-size: var(--step-2); font-stretch: 112%; }
+  .res-fix ol { padding-left: 1.3rem; display: grid; gap: 1.1rem; }
+  .res-fix ol :global(li::marker) { color: var(--signal); font-weight: 700; }
+  .res-fix :global(li) { color: #d3dde7; }
+  .res-fix :global(li strong) { color: var(--on-night); }
+  .res-fix :global(.src) { display: block; font-size: .85rem; color: var(--on-night-muted); margin-top: .3rem; }
+  .all summary { cursor: pointer; font-weight: 600; }
+  .all ul { padding-left: 1.1rem; display: grid; gap: .9rem; margin-top: 1rem; }
+  .note { font-size: .9rem; }
+  .res-fix .btn { justify-self: start; }
+  @media (max-width: 760px) {
+    .opts { grid-template-columns: repeat(2, 1fr); padding-left: 0; }
+    .q-t { grid-template-columns: 1.6rem 1fr; }
+    .res-grid { grid-template-columns: 1fr; }
+    .sa-bar { bottom: 5.5rem; }
+  }
+</style>

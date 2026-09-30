@@ -1,0 +1,119 @@
+---
+import { site, mailto } from '../data/site';
+interface Props { heading?: string; text?: string; subject?: string; prefill?: string; id?: string }
+const {
+  heading = 'Opišite problem ili projekt',
+  text = 'Za hitne situacije nazovite, prva reakcija je unutar 30 minuta. Za sve ostalo pošaljite upit i dobit ćete procjenu stanja i prijedlog sljedećeg koraka.',
+  subject = 'Upit s weba',
+  prefill = '',
+  id = 'kontakt',
+} = Astro.props;
+---
+<section class="contact night band" id={id} aria-labelledby={`${id}-h`}>
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <h2 class="display" id={`${id}-h`}>{heading}</h2>
+      <p class="muted">{text}</p>
+      <a class="big-phone" href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
+      <ul class="channels">
+        <li><a href={site.whatsapp}>WhatsApp poruka</a></li>
+        <li><a href={mailto(subject)}>{site.email}</a></li>
+        <li>{site.street}, {site.city}</li>
+      </ul>
+    </div>
+    <form class="cform" method="post" action="/api/contact" data-subject={subject} novalidate>
+      <div class="two">
+        <div class="field"><label for={`${id}-name`}>Ime i prezime</label><input class="input" id={`${id}-name`} name="name" autocomplete="name" required /></div>
+        <div class="field"><label for={`${id}-company`}>Tvrtka <span class="opt">(nije obavezno)</span></label><input class="input" id={`${id}-company`} name="company" autocomplete="organization" /></div>
+      </div>
+      <div class="field"><label for={`${id}-contact`}>Email ili telefon</label><input class="input" id={`${id}-contact`} name="contact" autocomplete="email" required /></div>
+      <fieldset class="field urg">
+        <legend>Koliko je hitno?</legend>
+        <div class="seg">
+          <label><input type="radio" name="urgency" value="Hitno, sustav ne radi" /><span>Hitno, ne radi</span></label>
+          <label><input type="radio" name="urgency" value="Ovaj tjedan" checked /><span>Ovaj tjedan</span></label>
+          <label><input type="radio" name="urgency" value="Planiramo projekt" /><span>Planiramo projekt</span></label>
+        </div>
+      </fieldset>
+      <div class="field"><label for={`${id}-msg`}>Poruka</label><textarea class="input" id={`${id}-msg`} name="message" required>{prefill}</textarea></div>
+      <div class="hp" aria-hidden="true"><label>Web stranica <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+      <p class="consent">Podatke iz obrasca koristimo samo za odgovor na vaš upit. <a href="/privatnost/">Politika privatnosti</a></p>
+      <button class="btn btn-signal" type="submit">Pošaljite upit</button>
+      <p class="cform-msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLFormElement>('form.cform').forEach((form) => {
+    const msg = form.querySelector<HTMLElement>('.cform-msg')!;
+    const btn = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+      const missing = ['name', 'contact', 'message'].filter((k) => !data[k]?.trim());
+      form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
+      if (missing.length) {
+        missing.forEach((k) => form.querySelector(`[name=${k}]`)?.setAttribute('aria-invalid', 'true'));
+        msg.dataset.kind = 'err';
+        msg.textContent = 'Upišite ime, kontakt i poruku da bismo vam se mogli javiti.';
+        (form.querySelector(`[name=${missing[0]}]`) as HTMLElement)?.focus();
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Šaljem…';
+      msg.textContent = '';
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...data, subject: form.dataset.subject, page: location.pathname }),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset();
+        msg.dataset.kind = 'ok';
+        msg.textContent = 'Upit je poslan. Javit ćemo vam se na navedeni kontakt.';
+        btn.textContent = 'Upit poslan';
+      } catch {
+        const body = `${data.message}\n\n${data.name}${data.company ? ', ' + data.company : ''}\n${data.contact}\nHitnost: ${data.urgency}`;
+        const href = `mailto:info@ideja-it.hr?subject=${encodeURIComponent(form.dataset.subject || 'Upit s weba')}&body=${encodeURIComponent(body)}`;
+        msg.dataset.kind = 'err';
+        msg.innerHTML = `Slanje trenutačno ne radi. <a href="${href}">Pošaljite isti upit emailom</a> ili nazovite 091 884 0345.`;
+        btn.disabled = false;
+        btn.textContent = 'Pošaljite upit';
+      }
+    });
+  });
+</script>
+<style>
+  .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+  .contact-info { display: grid; gap: 1.2rem; }
+  .contact-info h2 { font-size: var(--step-3); }
+  .contact-info p { max-width: 46ch; }
+  .big-phone { font-stretch: var(--wide); font-weight: 780; font-size: clamp(1.8rem, 1.3rem + 2vw, 2.6rem); color: var(--signal); text-decoration: none; width: fit-content; }
+  .big-phone:hover { text-decoration: underline; text-underline-offset: 6px; }
+  .channels { list-style: none; padding: 0; display: grid; gap: .45rem; color: var(--on-night-muted); }
+  .channels a { color: var(--on-night); text-underline-offset: 4px; }
+  .cform { display: grid; gap: 1.1rem; background: var(--night-2); border: 1px solid var(--night-line); border-radius: var(--r-tile); padding: clamp(1.25rem, 3vw, 2rem); }
+  .cform .input { background: var(--night); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .opt { font-weight: 400; color: var(--on-night-muted); }
+  fieldset { border: 0; padding: 0; min-width: 0; }
+  .seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+  .seg label { position: relative; }
+  .seg input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .seg span { display: flex; align-items: center; justify-content: center; text-align: center; min-height: 48px; padding: .4rem .6rem; border: 1px solid var(--night-line); border-radius: var(--r-ctl); font-size: .93rem; font-weight: 550; background: var(--night); cursor: pointer; }
+  .seg input:checked + span { border-color: var(--on-night); background: var(--night-3); }
+  .seg input[value^='Hitno']:checked + span { border-color: var(--signal); color: #fff; }
+  .seg input:focus-visible + span { outline: 2px solid var(--signal); outline-offset: 2px; }
+  .input[aria-invalid='true'] { border-color: var(--signal); }
+  .hp { position: absolute; left: -9999px; }
+  .consent { font-size: .88rem; color: var(--on-night-muted); }
+  .consent a { color: var(--on-night); }
+  .cform .btn { justify-self: start; }
+  .cform-msg:empty { display: none; }
+  .cform-msg[data-kind='ok'] { color: var(--ok); }
+  .cform-msg[data-kind='err'] { color: #ff9a9d; }
+  .cform-msg a { color: var(--on-night); }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 520px) { .two, .seg { grid-template-columns: 1fr; } .cform .btn { justify-self: stretch; } }
+</style>
