@@ -28,15 +28,14 @@
   --warn: #e9a23b;
 
   /* Tipografija */
-  --font: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
-  --mono: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Mono', Consolas, monospace;
-  --wide: 122%;
+  --font: 'Geist Variable', 'Geist', ui-sans-serif, system-ui, 'Segoe UI', sans-serif;
+  --mono: 'Geist Mono Variable', ui-monospace, 'Cascadia Mono', Consolas, monospace;
   --step--1: 0.875rem;
   --step-0: 1.0625rem;
   --step-1: 1.25rem;
   --step-2: clamp(1.45rem, 1.2rem + 1vw, 1.8rem);
   --step-3: clamp(1.9rem, 1.4rem + 2vw, 2.7rem);
-  --step-4: clamp(2.3rem, 1.6rem + 2.9vw, 3.7rem);
+  --step-4: clamp(2.5rem, 1.6rem + 3.6vw, 4.4rem);
 
   /* Raspored */
   --max: 1200px;
@@ -72,15 +71,14 @@ a { color: inherit; }
 .paper { background: var(--paper); color: var(--ink); }
 .band { padding-block: clamp(4rem, 8vw, 6.5rem); }
 .display {
-  font-stretch: var(--wide);
-  font-weight: 780;
-  letter-spacing: -0.012em;
-  line-height: 1.04;
+  font-weight: 620;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
   text-wrap: balance;
 }
-h1, h2, h3 { font-weight: 700; line-height: 1.15; text-wrap: balance; }
+h1, h2, h3 { font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; text-wrap: balance; }
 h2.display { font-size: var(--step-3); }
-h3 { font-size: var(--step-1); font-stretch: 108%; }
+h3 { font-size: var(--step-1); }
 p { text-wrap: pretty; }
 .lede { font-size: var(--step-1); line-height: 1.55; max-width: 62ch; }
 .muted { color: var(--ink-muted); }
@@ -93,7 +91,7 @@ p { text-wrap: pretty; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
   min-height: 48px; padding: .75rem 1.35rem;
-  font: inherit; font-weight: 650; font-size: 1rem; font-stretch: 108%;
+  font: inherit; font-weight: 650; font-size: 1rem;
   border-radius: var(--r-ctl); border: 1px solid transparent;
   text-decoration: none; cursor: pointer;
   transition: background-color .15s, border-color .15s, color .15s;
@@ -116,7 +114,7 @@ p { text-wrap: pretty; }
 /* Tekst u člancima i na stranicama usluga */
 .prose { max-width: 70ch; }
 .prose > * + * { margin-top: 1.1em; }
-.prose h2 { font-size: var(--step-2); font-stretch: 112%; margin-top: 2.2em; }
+.prose h2 { font-size: var(--step-2); margin-top: 2.2em; }
 .prose h3 { font-size: var(--step-1); margin-top: 1.8em; }
 .prose ul, .prose ol { padding-left: 1.25rem; }
 .prose li + li { margin-top: .4em; }
@@ -133,7 +131,7 @@ p { text-wrap: pretty; }
 .faq details { border-bottom: 1px solid var(--paper-line); }
 .faq summary {
   list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem;
-  padding: 1.15rem 0; font-weight: 650; font-size: 1.08rem; font-stretch: 106%;
+  padding: 1.15rem 0; font-weight: 650; font-size: 1.08rem;
 }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after { content: '+'; font-family: var(--mono); font-weight: 500; font-size: 1.25rem; color: var(--signal-ink); line-height: 1; }

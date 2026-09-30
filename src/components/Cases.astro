@@ -29,14 +29,14 @@ const list = limit ? cases.filter((c) => limit.includes(c.serviceSlug)) : cases;
   .case { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); gap: 2.5rem; padding: 2.25rem 0; border-top: 1px solid var(--night-line); }
   .case:last-child { border-bottom: 1px solid var(--night-line); }
   .case-meta { display: grid; gap: .6rem; align-content: start; }
-  .case-meta h3 { font-size: var(--step-2); font-stretch: 112%; }
+  .case-meta h3 { font-size: var(--step-2); }
   .case-meta p { color: var(--on-night-muted); }
   .case-meta a { color: var(--on-night); text-underline-offset: 4px; font-size: .95rem; width: fit-content; }
   .case-meta a:hover { color: var(--signal); }
   .case-log { display: grid; }
   .row { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding: .8rem 0; border-bottom: 1px dashed var(--night-line); }
   .row:last-child { border-bottom: 0; }
-  dt { font-weight: 650; font-stretch: 108%; color: var(--on-night-muted); }
+  dt { font-weight: 650; color: var(--on-night-muted); }
   dd { margin: 0; color: #d3dde7; }
   .is-sym dt { color: var(--signal); }
   .is-res dt { color: var(--ok); }

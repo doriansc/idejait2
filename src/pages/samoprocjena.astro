@@ -210,7 +210,7 @@ const numbered = areas.map((a) => ({ ...a, qs: a.qs.map((q) => ({ ...q, n: ++n }
   .sa-form { display: grid; gap: 3rem; max-width: 900px; }
   .area { border: 0; padding: 0; margin: 0; min-width: 0; }
   .area legend { padding: 0; margin-bottom: .5rem; }
-  .area h2 { font-size: var(--step-2); font-stretch: 112%; }
+  .area h2 { font-size: var(--step-2); }
   .q { padding: 1.25rem 0; border-top: 1px solid var(--paper-line); display: grid; gap: .85rem; }
   .q.missing .q-t { color: var(--signal-ink); }
   .q-t { font-weight: 600; font-size: 1.05rem; display: grid; grid-template-columns: 2rem 1fr; }
@@ -228,8 +228,8 @@ const numbered = areas.map((a) => ({ ...a, qs: a.qs.map((q) => ({ ...q, n: ++n }
   .sa-err:empty { display: none; }
 
   .res-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(2rem, 6vw, 5rem); }
-  .res-score h2 { font-size: 1.1rem; font-stretch: 110%; color: var(--on-night-muted); outline: none; }
-  .score { font-stretch: var(--wide); font-weight: 800; font-size: clamp(4rem, 3rem + 5vw, 7rem); line-height: 1; margin: .5rem 0 .75rem; }
+  .res-score h2 { font-size: 1.1rem; color: var(--on-night-muted); outline: none; }
+  .score { font-weight: 650; font-size: clamp(4rem, 3rem + 5vw, 7rem); line-height: 1; margin: .5rem 0 .75rem; }
   .score small { font-size: .3em; color: var(--on-night-muted); font-weight: 600; margin-left: .2rem; }
   .band-l { font-weight: 600; margin-bottom: 2rem; max-width: 36ch; }
   .band-l[data-kind='ok'] { color: var(--ok); }
@@ -244,7 +244,7 @@ const numbered = areas.map((a) => ({ ...a, qs: a.qs.map((q) => ({ ...q, n: ++n }
   :global(.ar-bar .warn) { background: var(--warn); }
   :global(.ar-bar .bad) { background: var(--signal); }
   .res-fix { display: grid; gap: 1.25rem; align-content: start; }
-  .res-fix h3 { font-size: var(--step-2); font-stretch: 112%; }
+  .res-fix h3 { font-size: var(--step-2); }
   .res-fix ol { padding-left: 1.3rem; display: grid; gap: 1.1rem; }
   .res-fix ol :global(li::marker) { color: var(--signal); font-weight: 700; }
   .res-fix :global(li) { color: #d3dde7; }

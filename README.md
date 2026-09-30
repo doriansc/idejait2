@@ -59,5 +59,5 @@ Stara stranica ostaje na grani `main` i GitHub Pages dok DNS ne prebaciš. Rollb
 
 - Tamni „noćni” ton (`--night`) za dijelove koji prikazuju rad sustava, svijetli „papir” (`--paper`) za sadržaj koji se čita.
 - Crvena (`--signal`) znači incident i brand, zelena (`--ok`) znači riješeno. Ne koriste se kao ukras.
-- Jedna obitelj slova: Archivo (varijabilna, os širine). Naslovi u proširenoj širini, tekst u normalnoj. JetBrains Mono samo za strojni ispis (vremena, statusi).
+- Pismo: Geist (varijabilno), naslovi zbijeni i polumasni. Geist Mono samo za strojni ispis (vremena, statusi).
 - Fontovi se poslužuju s vlastite domene, bez Google Fonts.
