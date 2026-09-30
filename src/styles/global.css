@@ -29,7 +29,7 @@
 
   /* Tipografija */
   --font: 'Geist Variable', 'Geist', ui-sans-serif, system-ui, 'Segoe UI', sans-serif;
-  --display: 'Bricolage Grotesque Variable', 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --display: 'Mona Sans Variable', 'Mona Sans', 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
   --mono: 'Geist Mono Variable', ui-monospace, 'Cascadia Mono', Consolas, monospace;
   --step--1: 0.875rem;
   --step-0: 1.0625rem;
@@ -73,7 +73,7 @@ a { color: inherit; }
 .band { padding-block: clamp(4rem, 8vw, 6.5rem); }
 .display {
   font-family: var(--display);
-  font-weight: 700;
+  font-weight: 680;
   letter-spacing: -0.025em;
   line-height: 1.02;
   text-wrap: balance;

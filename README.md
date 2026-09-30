@@ -59,5 +59,5 @@ Stara stranica ostaje na grani `main` i GitHub Pages dok DNS ne prebaciš. Rollb
 
 - Tamni „noćni” ton (`--night`) za dijelove koji prikazuju rad sustava, svijetli „papir” (`--paper`) za sadržaj koji se čita.
 - Crvena (`--signal`) znači incident i brand, zelena (`--ok`) znači riješeno. Ne koriste se kao ukras.
-- Pisma: Bricolage Grotesque za naslove, brojke i logo; Geist za tekst; Geist Mono samo za strojni ispis (vremena, statusi).
+- Pisma: Mona Sans za naslove, brojke i logo; Geist za tekst; Geist Mono samo za strojni ispis (vremena, statusi).
 - Fontovi se poslužuju s vlastite domene, bez Google Fonts.
