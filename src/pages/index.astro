@@ -165,13 +165,13 @@ const schema = [
   .facts { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: clamp(3rem, 6vw, 4.5rem); border-top: 1px solid var(--night-line); }
   .facts div { display: flex; flex-direction: column-reverse; gap: .2rem; padding: 1.4rem 1rem 1.6rem 0; }
   .facts div + div { padding-left: 1.25rem; border-left: 1px solid var(--night-line); }
-  .facts dd { margin: 0; font-weight: 600; font-size: var(--step-2); }
+  .facts dd { margin: 0; font-family: var(--display); font-weight: 650; font-size: var(--step-2); }
   .facts dt { color: var(--on-night-muted); font-size: .92rem; }
 
   .work-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 5rem); }
   .steps { list-style: none; padding: 0; counter-reset: s; display: grid; }
   .steps li { counter-increment: s; display: grid; grid-template-columns: 3rem 1fr; column-gap: 1rem; padding: 1.25rem 0; border-top: 1px solid var(--paper-line); }
-  .steps li::before { content: counter(s); grid-row: span 2; font-weight: 650; font-size: 1.6rem; line-height: 1.1; color: var(--signal-ink); }
+  .steps li::before { content: counter(s); grid-row: span 2; font-family: var(--display); font-weight: 650; font-size: 1.6rem; line-height: 1.1; color: var(--signal-ink); }
   .steps p { color: var(--ink-muted); max-width: 56ch; margin-top: .3rem; }
   .stack { background: #fff; border: 1px solid var(--paper-line); border-radius: var(--r-tile); padding: 1.75rem; display: grid; gap: 1.25rem; align-content: start; }
   .stack h3 { font-size: 1.1rem; }

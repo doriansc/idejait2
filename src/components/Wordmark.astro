@@ -4,8 +4,8 @@ const Tag = tag;
 ---
 <Tag class="wordmark"><span class="wm-mark" aria-hidden="true"></span>IDEJA<b>IT</b></Tag>
 <style>
-  .wordmark { display: inline-flex; align-items: center; gap: .55rem; font-weight: 700; font-size: 1.15rem; letter-spacing: 0; color: var(--on-night); }
-  .wordmark b { color: var(--signal); font-weight: 700; margin-left: .3rem; }
+  .wordmark { font-family: var(--display); display: inline-flex; align-items: center; gap: .55rem; font-weight: 700; font-size: 1.15rem; letter-spacing: 0; color: var(--on-night); }
+  .wordmark b { color: var(--signal); font-weight: 700; margin-left: .12rem; }
   /* Oznaka: statusna lampica u okviru uređaja */
   .wm-mark { width: 22px; height: 22px; border: 2px solid currentColor; border-radius: 5px; position: relative; flex: none; }
   .wm-mark::after { content: ''; position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--ok); right: 3px; bottom: 3px; }
