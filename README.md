@@ -28,6 +28,17 @@ npm run build    # rezultat u dist/
 
 Node 22+.
 
+## Testovi
+
+```bash
+npx playwright install chromium   # jednom
+npm run build && npm test         # sve stranice na mobile i desktop: render, scroll, alt, konzola, axe WCAG 2.1 AA, interni linkovi, izbornik, obrazac, samoprocjena
+npm run test:unit                 # Cloudflare funkcija kontakt obrasca
+npm run check:launch              # pada dok u izgrađenoj stranici postoji ijedna žuta TODO oznaka
+```
+
+Prije objave sva tri moraju proći.
+
 ## Prije objave obavezno
 
 - [ ] `src/pages/impressum.astro`: upisati OIB, obrtni registar / MBO i IBAN (ili ukloniti redak). Mjesta su označena žutom bojom.

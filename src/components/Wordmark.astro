@@ -2,7 +2,7 @@
 const { tag = 'span' } = Astro.props;
 const Tag = tag;
 ---
-<Tag class="wordmark"><span class="wm-mark" aria-hidden="true"></span>IDEJA<b>IT</b></Tag>
+<Tag class="wordmark"><span class="wm-mark" aria-hidden="true"></span>IDEJA<span class="sr-only"> </span><b>IT</b></Tag>
 <style>
   .wordmark { font-family: var(--display); display: inline-flex; align-items: center; gap: .55rem; font-weight: 700; font-size: 1.15rem; letter-spacing: 0; color: var(--on-night); }
   .wordmark b { color: var(--signal); font-weight: 700; margin-left: .12rem; }

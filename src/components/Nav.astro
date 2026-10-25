@@ -4,7 +4,7 @@ import { nav, site } from '../data/site';
 ---
 <header class="nav night">
   <div class="nav-in wrap">
-    <a href="/" class="nav-home" aria-label="IDEJA IT, početna"><Wordmark /></a>
+    <a href="/" class="nav-home"><Wordmark /><span class="sr-only">, početna</span></a>
     <nav aria-label="Glavna navigacija" id="nav-menu" class="nav-menu">
       <ul>
         {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}

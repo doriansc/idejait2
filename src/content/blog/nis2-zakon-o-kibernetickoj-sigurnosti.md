@@ -21,7 +21,7 @@ Nacionalni centar za kibernetičku sigurnost (NCSC-HR) predlaže samoprovjeru u 
 2. Jeste li neka od vrsta subjekata navedenih u tim prilozima?
 3. Jeste li **srednji ili veliki** subjekt prema EU kriterijima?
 
-Prema NCSC-u, **srednji** subjekt zapošljava 50 do 249 osoba te ima godišnji promet od 10 do 50 milijuna eura ili ukupnu bilancu od 10 do 43 milijuna eura. **Veliki** subjekt ima više od 250 zaposlenih te promet veći od 50 milijuna eura ili bilancu veću od 43 milijuna eura.
+Prema NCSC-u, **srednji** subjekt zapošljava 50 do 249 osoba te ima godišnji promet od 10 do 50 milijuna eura ili ukupnu bilancu od 10 do 43 milijuna eura. **Veliki** subjekt ima 250 ili više zaposlenih te promet veći od 50 milijuna eura ili bilancu veću od 43 milijuna eura.
 
 Postoje i iznimke od kriterija veličine. Neki subjekti kategoriziraju se **bez obzira na veličinu**, na primjer kvalificirani pružatelji usluga povjerenja i informacijski posrednici u razmjeni eRačuna. Za MSP-ove je najvažnija sljedeća iznimka: prema NCSC-u, **pružatelji upravljanih IKT usluga i upravljanih sigurnosnih usluga** koji rade za kategorizirane subjekte i sami moraju biti kategorizirani, također bez obzira na veličinu.
 
@@ -37,9 +37,9 @@ Obveze iz Zakona počinju teći tek od primitka te obavijesti. NCSC izričito na
 
 Prema NCSC-u:
 
-- **15 dana** za dostavu podataka o subjektu nadležnom tijelu,
-- **30 dana** za početak prijavljivanja značajnih incidenata (platforma PiXi),
-- **godinu dana** za provedbu mjera upravljanja rizicima propisane razine,
+- **15 dana** za dostavu podataka o subjektu nadležnom tijelu, prema uputama iz obavijesti,
+- **30 dana** za početak prijavljivanja značajnih incidenata (platforma PiXi; čl. 37. Zakona),
+- **godinu dana** za provedbu mjera upravljanja rizicima propisane razine (čl. 26. Zakona),
 - **dvije godine** za nadogradnju mjera kroz vlastito upravljanje rizicima,
 - **tri godine** za prvu samoprocjenu ili reviziju.
 
@@ -47,7 +47,7 @@ Nakon toga ključni subjekti prolaze reviziju, a važni subjekti provode samopro
 
 ### Mjere upravljanja rizicima
 
-Uredba u Prilogu II. propisuje 13 skupina mjera. Obuhvaćaju, među ostalim, upravljanje imovinom, upravljanje rizicima, sigurnost lanca opskrbe, fizičku sigurnost, kontrolu pristupa i autentikaciju, kriptografiju, detekciju i odgovor na incidente te kontinuitet poslovanja. Za provedbu mjera odgovorni su **članovi upravljačkih tijela** (čl. 29. Zakona). Oni moraju pohađati odgovarajuća osposobljavanja i omogućiti ih zaposlenicima.
+Uredba u Prilogu II. propisuje 13 skupina mjera. Obuhvaćaju, među ostalim, upravljanje imovinom, upravljanje rizicima, sigurnost lanca opskrbe, fizičku sigurnost, kontrolu pristupa i digitalne identitete, kriptografiju, upravljanje incidentima te kontinuitet poslovanja. Za provedbu mjera odgovorni su **članovi upravljačkih tijela** (čl. 29. Zakona). Oni moraju pohađati odgovarajuća osposobljavanja i omogućiti ih zaposlenicima.
 
 ### Prijava značajnih incidenata
 
@@ -56,13 +56,13 @@ Uredba propisuje sljedeći redoslijed prijave nadležnom CSIRT-u:
 - **rano upozorenje**: najkasnije **24 sata** od saznanja za značajan incident,
 - **početna obavijest**: najkasnije **72 sata** od saznanja,
 - **završno izvješće**: najkasnije **30 dana** od početne obavijesti,
-- za incidente koji traju dulje od 60 dana, **izvješće o napretku** svakih 30 dana.
+- ako incident u tom roku još traje, umjesto završnog šalje se **izvješće o napretku**, a za incidente koji traju dulje od 60 dana od početne obavijesti izvješće o napretku šalje se svakih 30 dana.
 
 Incident je značajan ako zadovoljava kriterije iz Uredbe, na primjer ozbiljan prekid usluge ili financijski gubitak iznad propisanog praga.
 
 ### Kazne
 
-Direktiva NIS2 propisuje najviše novčane kazne od **10 milijuna eura ili 2 %** ukupnog godišnjeg prometa za ključne subjekte te **7 milijuna eura ili 1,4 %** za važne subjekte. Iste gornje granice, uz propisane najniže iznose, navode se i za hrvatski zakon.
+Direktiva NIS2 (čl. 34.) traži da gornja granica novčane kazne za ključne subjekte bude najmanje **10 milijuna eura ili 2 %** ukupnog svjetskog godišnjeg prometa, ovisno o tome što je više, a za važne subjekte najmanje **7 milijuna eura ili 1,4 %**. Prema pregledima hrvatskog zakona (npr. Lider), Zakon preuzima iste gornje granice i propisuje i najniže iznose kazni. Točne raspone provjerite u prekršajnim odredbama Zakona. <span class="todo">[PRIJE OBJAVE: provjeriti raspone kazni u prekršajnim odredbama NN 14/24 i upisati ih s brojem članka]</span>
 
 ## Mali dobavljači: niste obveznik, ali ste u lancu
 
@@ -99,5 +99,6 @@ Ako niste sigurni jeste li obveznik ili vam je kupac poslao sigurnosni upitnik, 
 - [NCSC-HR: Pitanja kategoriziranih subjekata](https://ncsc.hr/hr/pitanja-kategoriziranih-subjekata)
 - [NCSC-HR: Započeo proces kategorizacije subjekata](https://ncsc.hr/hr/zapoceo-proces-kategorizacije-subjekata-obveznika-zakona-o-kibernetickoj-sigurnosti)
 - [NCSC-HR: Smjernice za upravljanje kibernetičkim sigurnosnim rizicima (PDF)](https://ncsc.hr/UserDocsImages/ostalo/SmjerniceUpravljanjeKiberneti%C4%8DkimSigurnosnimRizicima.pdf?vel=2221640)
+- [NCSC-HR: Regulativni okvir kibernetičke sigurnosti u RH (prezentacija, svibanj 2025., PDF)](https://konferencija.nks.hr/wp-content/uploads/2025/06/1-Regulativni-okvir-kiberneticke-sigurnosti-u-Republici-Hrvatskoj.pdf)
 - [Direktiva (EU) 2022/2555 (NIS2), EUR-Lex](https://eur-lex.europa.eu/legal-content/HR/TXT/HTML/?uri=CELEX:32022L2555)
-- [Lider: Što poduzetnicima donosi novi Zakon o kibernetičkoj sigurnosti](https://lidermedia.hr/biznis-i-politika/od-jucer-na-snazi-sto-poduzetnicima-donosi-novi-zakon-o-kibernetickoj-sigurnosti-155643/)
+- [Lider: Što poduzetnicima donosi novi Zakon o kibernetičkoj sigurnosti](https://lidermedia.hr/biznis-i-politika/od-jucer-na-snazi-sto-poduzetnicima-donosi-novi-zakon-o-kibernetickoj-sigurnosti-155643/) (sekundarni izvor za raspone kazni)

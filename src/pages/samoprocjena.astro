@@ -221,6 +221,8 @@ const numbered = areas.map((a) => ({ ...a, qs: a.qs.map((q) => ({ ...q, n: ++n }
   .opts span { display: flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--paper-line); background: #fff; border-radius: var(--r-ctl); font-weight: 550; font-size: .95rem; cursor: pointer; }
   .opts input:checked + span { border-color: var(--ink); background: var(--ink); color: #fff; }
   .opts input:focus-visible + span { outline: 2px solid var(--signal-ink); outline-offset: 2px; }
+  /* Fokusirano pitanje ne smije završiti ispod ljepljive trake (WCAG 2.4.11) */
+  :global(html) { scroll-padding-bottom: 7rem; }
   .sa-bar { position: sticky; bottom: 1rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .85rem 1rem .85rem 1.25rem; background: var(--night); color: var(--on-night); border-radius: var(--r-tile); z-index: 5; }
   .progress { color: var(--on-night-muted); }
   .progress strong { color: var(--on-night); }
@@ -259,5 +261,6 @@ const numbered = areas.map((a) => ({ ...a, qs: a.qs.map((q) => ({ ...q, n: ++n }
     .q-t { grid-template-columns: 1.6rem 1fr; }
     .res-grid { grid-template-columns: 1fr; }
     .sa-bar { bottom: 5.5rem; }
+    :global(html) { scroll-padding-bottom: 11rem; }
   }
 </style>

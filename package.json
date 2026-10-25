@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test": "playwright test",
+    "test:unit": "node --test tests/unit/*.test.js",
+    "check:launch": "node -e \"const fs=require('fs'),p=require('path');const w=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?w(p.join(d,e.name)):e.name.endsWith('.html')?[p.join(d,e.name)]:[]);const bad=w('dist').filter(f=>/class=\\\"todo/.test(fs.readFileSync(f,'utf8')));if(bad.length){console.error('Otvorene TODO oznake:\\n'+bad.join('\\n'));process.exit(1)}console.log('Nema otvorenih TODO oznaka.')\""
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
@@ -14,5 +17,9 @@
     "@fontsource-variable/geist-mono": "^5.3.0",
     "@fontsource-variable/mona-sans": "^5.3.0",
     "astro": "^7.3.5"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.63.0"
   }
 }

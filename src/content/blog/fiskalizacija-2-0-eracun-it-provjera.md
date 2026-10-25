@@ -19,7 +19,7 @@ U nastavku je kratak pregled obveza i popis stvari koje vrijedi provjeriti.
 - Za njih Porezna uprava nudi besplatnu aplikaciju **MIKROeRAČUN**: zaprimanje od 2026., izdavanje od 2027.
 - Tijela javnog sektora bez PDV-a zaprimaju od 2026., a izdaju od 2027.
 
-Važna praktična posljedica: **PDF poslan e-mailom nije eRačun.** Porezna uprava to izričito navodi u svojim pitanjima i odgovorima. E-mail više nije kanal za razmjenu računa među obveznicima.
+Važna praktična posljedica: **PDF poslan e-mailom nije eRačun.** Porezna uprava to izričito navodi u svojim pitanjima i odgovorima. E-mail nije kanal za razmjenu eRačuna među obveznicima.
 
 ### Fiskalizacija eRačuna
 
@@ -35,7 +35,7 @@ eRačuni se razmjenjuju preko **pristupnih točaka**, u pravilu informacijskog p
 
 Nekoliko korisnih pravila:
 
-- Posrednik mora imati potvrdu o sukladnosti Porezne uprave i nalaziti se na njezinom službenom popisu; među uvjetima je i važeći ISO certifikat.
+- Posrednik mora imati potvrdu o sukladnosti Porezne uprave i nalaziti se na njezinom službenom popisu; među uvjetima je i važeći certifikat ISO/IEC 27001 (čl. 61. Zakona).
 - Tvrtka može koristiti više posrednika, svaki uz zaseban identifikator.
 - Potvrda novog posrednika na istom identifikatoru automatski poništava prethodnu.
 - Tehnički je moguće biti i sam svoja pristupna točka, ali to je realno samo za veće sustave.
@@ -48,7 +48,7 @@ Uz razmjenu i fiskalizaciju postoji i izvještajni sustav:
 - **primatelj** prijavljuje **odbijanje** eRačuna,
 - izdavatelj prijavljuje i račune koje nije mogao izdati kao eRačun jer primatelj nema adresu u AMS-u.
 
-Rok je **do 20. dana u mjesecu za prethodni mjesec**, a podaci se šalju web-servisom, preko posrednika ili kroz FiskAplikaciju.
+Za naplatu i odbijanje rok je **do 20. dana u mjesecu za prethodni mjesec**. Računi koji nisu mogli biti izdani kao eRačun prijavljuju se u trenutku izdavanja, kao i kod fiskalizacije (čl. 51. Zakona). Podaci se šalju web-servisom, preko posrednika ili kroz FiskAplikaciju.
 
 ### Čuvanje i kazne
 
@@ -59,7 +59,7 @@ Izdane i zaprimljene eRačune treba čuvati **u izvornom obliku šest godina** o
 ### 1. Knjigovodstveni program ili ERP
 
 - Radi li integracija s posrednikom automatski (slanje, preuzimanje, statusi) ili netko ručno prebacuje datoteke?
-- Jesu li artikli i usluge povezani s **KPD klasifikacijom**, kako Porezna uprava traži?
+- Jesu li artikli i usluge povezani s **KPD klasifikacijom**? Pravilnik o eRačunu traži KPD oznaku za svaki artikl na eRačunu.
 - Je li instalirana zadnja verzija programa? Porezna uprava tijekom 2026. dopunjavala je upute, a dobavljači softvera prate te izmjene.
 
 ### 2. Posrednik i ugovor
@@ -114,6 +114,7 @@ Zakonske obveze uglavnom su riješene kroz posrednika i knjigovodstveni program,
 ## Izvori
 
 - [Zakon o fiskalizaciji, NN 89/25 (Narodne novine)](https://narodne-novine.nn.hr/clanci/sluzbeni/2025_06_89_1233.html)
+- [Pravilnik o eRačunu, NN 11/26 (Narodne novine)](https://narodne-novine.nn.hr/clanci/sluzbeni/2026_01_11_88.html)
 - [Porezna uprava: Izdavanje i primanje eRačuna i fiskalizacija eRačuna](https://porezna-uprava.gov.hr/hr/izdavanje-i-primanje-eracuna-i-fiskalizacija-eracuna/8047)
 - [Porezna uprava: Fiskalizacija eRačuna](https://porezna-uprava.gov.hr/hr/fiskalizacija-eracuna-azurirano-17-4-2026/8049)
 - [Porezna uprava: Pristupna točka](https://porezna-uprava.gov.hr/hr/pristupna-tocka/8053)
